@@ -1,0 +1,16 @@
+{
+ "verified_on": "2026-11-20",
+ "note": "Official statutory rates, checked by hand on the date above against the notifications linked. Duty changes only by notification, so it is not auto-fetched. The tariff value changes every two weeks; if it is more than 16 days old the app greys it out.",
+ "hs": "7108 (gold bars, coins; benefit of S. No. 194 of Notification 45/2025-Customs)",
+ "bcd_pct": {"value": 10, "from": "2026-05-13", "source": "Notification 15/2026-Customs (12 May 2026), amending S. No. 194 of 45/2025-Customs: 5% -> 10%", "url": "https://www.caalley.com/cus26/cst-15-2026.pdf"},
+ "aidc_pct": {"value": 5, "from": "2026-05-13", "source": "Notification 16/2026-Customs (12 May 2026), amending AIDC notification 11/2021-Customs: 1% -> 5% on gold (as reported by Economic Times and Moneycontrol, 13 May 2026; we could not tie the exact AIDC serial number to gold bars from the notification text alone)", "url": "https://www.caalley.com/cus26/cst-16-2026.pdf"},
+ "sws_pct": {"value": 0, "source": "Social Welfare Surcharge exempt for heading 7108 (S. No. 1 of 11/2018-Customs, as amended by 16/2026-Customs)", "url": "https://www.caalley.com/cus26/cst-16-2026.pdf"},
+ "gst_pct": {"value": 3, "source": "Notification 9/2025-Integrated Tax (Rate), Schedule IV S. No. 5 (heading 7108): 3% (1.5% CGST + 1.5% SGST), from 22 Sep 2025", "url": "https://courier.cbic.gov.in/ECCS/advisory/2025/NOTIFICATION%20NO.%209_2025-INTEGRATED%20TAX%20(RATE)%20-1759486719.pdf"},
+ "tariff_value": {"value": 1245, "unit": "US$ per 10 g", "from": "2026-11-20", "source": "Notification 94/2026-Customs (N.T.), 19 Nov 2026, Table-2 S. No. 1 and 4 (no change from 91/2026-Customs (N.T.) of 13 Nov 2026)", "url": "https://gazettetracker.com/g/CG-DL-E-19112026-278058"},
+ "previous_regime": {"text": "6% (BCD 5% + AIDC 1%) from 23 Jul 2024 to 12 May 2026. Not used in any calculation: the IBJA history the app holds starts 20 Jul 2026.", "url": "https://economictimes.indiatimes.com/news/new-updates/gold-jewellery-to-get-costlier-heres-how-much-more-you-need-to-pay-on-your-next-purchase/articleshow/131053577.cms"},
+ "duty_schedule": [{"from": "2026-05-13", "pct": 15}],
+ "calendar": [
+  {"date": "2027-05-09", "name": "Akshaya Tritiya", "gu": "અખાત્રીજ", "hi": "अक्षय तृतीया", "source": "Drik Panchang", "url": "https://www.drikpanchang.com/festivals/akshaya-tritiya/akshaya-tritiya-date-time.html"},
+  {"date": "2027-10-27", "name": "Dhanteras", "gu": "ધનતેરસ", "hi": "धनतेरस", "source": "Shubhdin Panchang (New Delhi sunrise; can shift a day by city)", "url": "https://shubhdinpanchang.com/en/festivals/dhanteras/"}
+ ]
+}

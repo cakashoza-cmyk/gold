@@ -1,0 +1,4 @@
+id,kind,made_on,horizon_days,target_date,model_version,buy_call,basis,direction,pred_pct,pred_ibja_rs,error_band_pct,model_has_edge,scored,realised_on,realised_ibja_rs,realised_pct,error_rs,hit_direction,hit_buy_call,ibja_rs_at_call,premium_pct_at_call
+2026-11-19-7d,model,2026-11-19,7,2026-11-26,v1.1,,,flat,0.0,129531.0,3.04,False,,,,,,,,129531.0,
+2026-11-19-30d,model,2026-11-19,30,2026-12-19,v1.1,,,flat,0.0,129531.0,6.01,False,,,,,,,,129531.0,
+2026-11-19-call,call,2026-11-19,30,2026-12-19,v1.1,buy part,rules,,,,,,,,,,,,,129531.0,2.1

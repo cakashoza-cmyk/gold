@@ -1,0 +1,96 @@
+{
+"predictions": [
+{
+"id": "2026-11-19-7d",
+"kind": "model",
+"horizon_days": 7,
+"target_date": "2026-11-26",
+"pred_pct": 0.0,
+"direction": "flat",
+"pred_ibja_rs": 129531.0,
+"error_band_pct": 3.04,
+"model_has_edge": false,
+"inputs": {
+"ibja_rs": 129531.0,
+"features": [
+-7.276,
+0.1,
+0.439,
+-0.787
+],
+"weights": {
+"momentum": 0.0,
+"real_yield": 0.0,
+"dollar": 0.0,
+"rupee": 0.0
+}
+},
+"made_on": "2026-11-19",
+"logged_ist": "2026-11-20 10:53 IST",
+"model_version": "v1.1"
+},
+{
+"id": "2026-11-19-30d",
+"kind": "model",
+"horizon_days": 30,
+"target_date": "2026-12-19",
+"pred_pct": 0.0,
+"direction": "flat",
+"pred_ibja_rs": 129531.0,
+"error_band_pct": 6.01,
+"model_has_edge": false,
+"inputs": {
+"ibja_rs": 129531.0,
+"features": [
+-13.931,
+0.08,
+1.093,
+-1.717
+],
+"weights": {
+"momentum": 0.0,
+"real_yield": 0.0,
+"dollar": 0.0,
+"rupee": 0.0
+}
+},
+"made_on": "2026-11-19",
+"logged_ist": "2026-11-20 10:53 IST",
+"model_version": "v1.1"
+},
+{
+"id": "2026-11-19-call",
+"news_flag": null,
+"kind": "call",
+"horizon_days": 30,
+"target_date": "2026-12-19",
+"buy_call": "buy part",
+"raw_call": "buy now",
+"downgraded": "'buy now' softened to 'buy part': the dip rule has been wrong more often than right in the last 180 days of the back-test",
+"basis": "rules",
+"rule_premium": "wait",
+"rule_dip": "buy now",
+"rules_active": {
+"dip_buy": true,
+"dip_wait": false,
+"prem_buy": false,
+"prem_wait": false
+},
+"inputs": {
+"ibja_rs": 129531.0,
+"premium_pct": 2.1,
+"gold_rupee_move_pct": -7.28,
+"rules": {
+"prem_pct": 2.0,
+"dip_pct": 3.0,
+"dip_days": 7,
+"call_days": 30
+},
+"repo_pct": 5.5
+},
+"made_on": "2026-11-19",
+"logged_ist": "2026-11-20 10:53 IST",
+"model_version": "v1.1"
+}
+]
+}

@@ -1,0 +1,221 @@
+{
+ "changelog": [
+  {
+   "date": "2026-11-20",
+   "version": "v1.1",
+   "changes": [
+    "7-day model first fitted on 2580 realised outcomes: no variable (momentum, real yield, dollar, rupee) beat 'assume no change' in the walk-forward test, so all weights are 0 and the forecast is 'no change'.",
+    "30-day model first fitted on 2546 realised outcomes: no variable (momentum, real yield, dollar, rupee) beat 'assume no change' in the walk-forward test, so all weights are 0 and the forecast is 'no change'.",
+    "Rule 'buy after a dip' is used for the call: back-test right 73.4% of 143 signals vs 26.6% for the opposite action.",
+    "Rule 'wait after a jump' is NOT used for the call: back-test right 40.9% of 254 signals vs 59.1% for the opposite action.",
+    "Rule 'buy when India is at a discount' is NOT used for the call: back-test right 36.8% of 19 signals vs 63.2% for the opposite action (needs at least 30 signals).",
+    "Rule 'wait when India is at a premium' is NOT used for the call: back-test right -% of 0 signals vs -% for the opposite action (needs at least 30 signals)."
+   ]
+  }
+ ],
+ "version": "v1.1",
+ "updated_ist": "2026-11-20 10:53 IST",
+ "horizons": {
+  "7": {
+   "gate": {
+    "mask": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "why": {
+     "momentum": "weight set to 0: walk-forward error 1.869% with it vs 1.866% without it, so it did not cut error by at least 1%",
+     "real_yield": "weight set to 0: walk-forward error 1.866% with it vs 1.866% without it, so it did not cut error by at least 1%",
+     "dollar": "weight set to 0: walk-forward error 1.866% with it vs 1.861% without it, so it did not cut error by at least 1%",
+     "rupee": "weight set to 0: walk-forward error 1.861% with it vs 1.863% without it, so it did not cut error by at least 1%"
+    }
+   },
+   "weights": {
+    "momentum": 0.0,
+    "real_yield": 0.0,
+    "dollar": 0.0,
+    "rupee": 0.0
+   },
+   "train_n": 2580,
+   "train_first": "2016-11-21",
+   "train_last": "2026-11-20",
+   "error_band_pct": 3.04
+  },
+  "30": {
+   "gate": {
+    "mask": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "why": {
+     "momentum": "weight set to 0: walk-forward error 3.918% with it vs 3.883% without it, so it did not cut error by at least 1%",
+     "real_yield": "weight set to 0: walk-forward error 3.883% with it vs 3.881% without it, so it did not cut error by at least 1%",
+     "dollar": "weight set to 0: walk-forward error 3.881% with it vs 3.855% without it, so it did not cut error by at least 1%",
+     "rupee": "weight set to 0: walk-forward error 3.855% with it vs 3.86% without it, so it did not cut error by at least 1%"
+    }
+   },
+   "weights": {
+    "momentum": 0.0,
+    "real_yield": 0.0,
+    "dollar": 0.0,
+    "rupee": 0.0
+   },
+   "train_n": 2546,
+   "train_first": "2016-11-21",
+   "train_last": "2026-11-20",
+   "error_band_pct": 6.01
+  }
+ },
+ "backtest": {
+  "7": {
+   "n": 416,
+   "start": "2018-10-29",
+   "end": "2026-11-09",
+   "hit_rate": 36.1,
+   "naive_hit_rate": 36.1,
+   "mae_pct": 1.863,
+   "naive_mae_pct": 1.863,
+   "err_band_pct": 3.04,
+   "up_share": 55.0,
+   "ungated_hit_rate": 36.1,
+   "ungated_mae_pct": 1.869
+  },
+  "30": {
+   "n": 410,
+   "start": "2018-11-21",
+   "end": "2026-10-21",
+   "hit_rate": 34.4,
+   "naive_hit_rate": 34.4,
+   "mae_pct": 3.86,
+   "naive_mae_pct": 3.86,
+   "err_band_pct": 6.01,
+   "up_share": 61.5,
+   "ungated_hit_rate": 34.1,
+   "ungated_mae_pct": 3.918
+  }
+ },
+ "rules": {
+  "params": {
+   "prem_pct": 2.0,
+   "dip_pct": 3.0,
+   "dip_days": 7,
+   "call_days": 30
+  },
+  "backtest": {
+   "dip": {
+    "n": 397,
+    "hit_rate": 52.6,
+    "by_call": {
+     "wait": {
+      "n": 254,
+      "hit_rate": 40.9,
+      "opposite_hit_rate": 59.1
+     },
+     "buy now": {
+      "n": 143,
+      "hit_rate": 73.4,
+      "opposite_hit_rate": 26.6
+     }
+    },
+    "base_up": 64.2,
+    "base_down": 35.8,
+    "base_flat": 32.5,
+    "start": "2017-11-06",
+    "data": "COMEX gold x USD/INR (ECB), daily, before duty",
+    "all_days": {
+     "n": 2318,
+     "up_pct": 60.4,
+     "down_pct": 39.6
+    },
+    "recent": {
+     "since": "2026-04-03",
+     "n": 33,
+     "hit_rate": 54.5,
+     "by_call": {
+      "buy now": {
+       "n": 19,
+       "hit_rate": 36.8,
+       "opposite_hit_rate": 63.2
+      },
+      "wait": {
+       "n": 14,
+       "hit_rate": 78.6,
+       "opposite_hit_rate": 21.4
+      }
+     },
+     "base_up": 30.3,
+     "base_down": 69.7,
+     "base_flat": 24.2
+    }
+   },
+   "premium": {
+    "n": 19,
+    "hit_rate": 36.8,
+    "by_call": {
+     "buy now": {
+      "n": 19,
+      "hit_rate": 36.8,
+      "opposite_hit_rate": 63.2
+     }
+    },
+    "base_up": 36.8,
+    "base_down": 63.2,
+    "base_flat": 42.1,
+    "start": "2026-07-20",
+    "data": "IBJA 999 closing rate (only the ~4 months of IBJA history the app holds; too few for a firm verdict)"
+   },
+   "combined": {
+    "n": 64,
+    "hit_rate": 12.5,
+    "by_call": {
+     "buy part": {
+      "n": 56,
+      "hit_rate": 14.3,
+      "opposite_hit_rate": 0.0
+     },
+     "buy now": {
+      "n": 8,
+      "hit_rate": 0.0,
+      "opposite_hit_rate": 100.0
+     }
+    },
+    "base_up": 26.6,
+    "base_down": 73.4,
+    "base_flat": 14.1,
+    "start": "2026-07-20",
+    "data": "IBJA 999 closing rate (only the ~4 months of IBJA history the app holds; too few for a firm verdict)"
+   },
+   "active": {
+    "dip_buy": true,
+    "dip_wait": false,
+    "prem_buy": false,
+    "prem_wait": false
+   },
+   "recent_fail": {
+    "dip_buy": true,
+    "dip_wait": false
+   }
+  }
+ },
+ "data_last_date": "2026-11-20",
+ "ibja_last_date": "2026-11-19",
+ "formula": "Gold desk prediction ledger, scoring and learning. Numbers only from data/live.json and data/rates.json.\nNo AI is used anywhere here; every number is plain arithmetic or least squares, written to JSON.\n\nPrices\n  International gold in rupees (Rs/10 g, before duty) = COMEX gold (US$/oz) x USD/INR / 31.1035 x 10\n  Landed cost (Rs/10 g, before GST)                   = international x (1 + customs duty%)          [market-value basis]\n  Indian premium (+) / discount (-) %                  = IBJA 999 closing / landed cost - 1\n     (COMEX reference = average of previous and same-day COMEX close, approximating the price at IBJA's afternoon rate)\nForecast of the % change of gold in rupees over h days (h = 7, 30):\n  d% = w_mom * (gold-in-rupees % change over last h days)\n     + w_real * (US 10-yr real yield change over last h days, percentage points)\n     + w_usd * (US broad dollar index % change over last h days)\n     + w_fx * (USD/INR % change over last h days)\n  weights re-fitted every run by ridge least squares on realised history (heavy shrinkage toward 'no change');\n  a variable keeps weight only if it cuts walk-forward error by at least 1%, and the model as a whole must beat 'no change'.\n  The forecast is applied to the IBJA 999 closing rate; live predictions are scored on the IBJA closing rate.",
+ "band_pct": {
+  "7": 1.0,
+  "30": 2.0
+ },
+ "cc_spread_assumption_pct": 4.0,
+ "lessons": [
+  "7-day back-test (2018-10-29 to 2026-11-09, 416 calls, gold in rupees): direction right 36.1% vs 36.1% for 'assume no change'; average error 1.863% vs 1.863%. Un-gated model (all four variables): 36.1% right, error 1.869%.",
+  "7-day: no variable has proven predictive value, so the model forecast is 'no change' and it is not used for the call. Gold behaves close to a random walk.",
+  "30-day back-test (2018-11-21 to 2026-10-21, 410 calls, gold in rupees): direction right 34.4% vs 34.4% for 'assume no change'; average error 3.86% vs 3.86%. Un-gated model (all four variables): 34.1% right, error 3.918%.",
+  "30-day: no variable has proven predictive value, so the model forecast is 'no change' and it is not used for the call. Gold behaves close to a random walk.",
+  "Rule 'buy on a 3.0% dip, wait after a 3.0% jump' (30-day outcome, since 2017-11-06): right 52.6% of 397 signals (wait: 40.9% of 254, opposite action 59.1%, buy now: 73.4% of 143, opposite action 26.6%).",
+  "Rule 'premium/discount above 2.0%': 19 signals in the IBJA history held, right 36.8% (buy now: 36.8% of 19).",
+  "Rule sides used for today's call: 'buy after a dip'. Not used: 'wait after a jump', 'buy when India is at a discount', 'wait when India is at a premium'.",
+  "Live track record: learning, too few results yet (0 scored)."
+ ]
+}

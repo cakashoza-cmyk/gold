@@ -1,0 +1,54 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Gold Desk methodology</title><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E%F0%9F%AA%99%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/style.css">
+<style>.m{max-width:860px;margin:0 auto}.m h2{font-size:1.05rem;margin:18px 0 6px;color:#7dd3fc}.m p,.m li{font-size:.9rem;color:#cbd5e1;margin-bottom:6px}.m ul{padding-left:18px}</style></head>
+<body><div class="m">
+<p><a href="index.html">← main screen</a> · <a href="index.html#details">details</a></p>
+<h1 style="font-size:1.3rem;margin-top:8px">Gold Desk methodology</h1>
+<p class="sub">The gold counterpart of <a href="https://cakashoza-cmyk.github.io/sttie/">STTIE</a> (the Surat yarn desk), built on the same code, data rules and learning loop.</p>
+
+<h2>1. Who it is for and what it answers</h2>
+<ul><li><b>Audience:</b> small jewellers, gold traders and bullion buyers in Surat and Gujarat (an MSME trader audience, like STTIE), and families planning a big purchase such as wedding jewellery.</li>
+<li><b>The one question:</b> should I buy my gold now, wait, or buy part now? The call is for a purchase planned within about 30 days.</li>
+<li>Gujarati-first one-screen view with Hindi and English, a big simple call, a WhatsApp share and a read-aloud button. Details pages in English for bankers and advisers.</li>
+<li><b>What it is not:</b> not investment advice, not a forecast you can bank on, and not a recommendation to trade MCX futures, gold ETFs or any financial product. It is about timing physical gold purchases.</li></ul>
+
+<h2>2. Principles</h2>
+<ul><li>No invented data. Every number is (a) fetched automatically from a named public source with its date, (b) an official statutory rate with the date it was checked, (c) a calculation from those numbers with the formula shown, or (d) an input or assumption labelled as such, which you can edit.</li>
+<li>Where no free, reliable source exists the app shows <i>no live source</i>, not a guess. Unofficial feeds are labelled <i>unofficial</i>.</li>
+<li>No AI produces any number, call, weight or translation. All text is fixed templates with numbers inserted. News headlines can only make a call more cautious, never create one.</li>
+<li>Zero running cost: static GitHub Pages and a scheduled GitHub Actions job (08:30, 14:30, 20:30 IST). No keys, no backend, no login. Your own entries stay in your browser.</li></ul>
+
+<h2>3. Data</h2>
+<ul><li><b>Indian gold rate:</b> IBJA (India Bullion and Jewellers Association) published rates for 999, 995, 916 and 750 purity, per 10 g, opening (AM) and closing (PM), without 3% GST and making charges, read from the public page ibjarates.com. IBJA rates are the benchmark RBI uses for Sovereign Gold Bonds and gold-loan valuation. The page carries about 84 days of closing rates; the app stores every refresh, so its own history grows. IBJA asks commercial users to subscribe to its official API.</li>
+<li><b>International gold:</b> COMEX gold futures (continuous front month), daily closes since 2016 and the latest quote, from the Sina Finance public quote feed. <i>Unofficial</i>: not a CME feed.</li>
+<li><b>USD/INR:</b> FBIL reference rate as shown on the RBI homepage for today's figures; ECB reference rates (Frankfurter API) for history.</li>
+<li><b>RBI repo rate:</b> RBI homepage. <b>US 10-year real yield (DFII10), broad dollar index (DTWEXBGS), fed funds (DFF):</b> Federal Reserve data via FRED.</li>
+<li><b>Customs duty and GST</b> (checked by hand, dated in data/rates.json): basic customs duty 10% (Notification 15/2026-Customs, from 13 May 2026), AIDC 5% (Notification 16/2026-Customs, from 13 May 2026), SWS exempt for heading 7108, so 15% in all; GST 3% (Notification 9/2025-Integrated Tax (Rate), Schedule IV). The July 2024 rate of 6% no longer applies. CBIC tariff value for gold: US$1,245 per 10 g (Notification 94/2026-Customs (N.T.), from 20 Nov 2026), revised every two weeks; greyed out when older than 16 days.</li>
+<li><b>Festival calendar</b> (Akshaya Tritiya, Dhanteras): fixed dates from published panchangs, shown as context only. No festival price effect is assumed.</li>
+<li><b>Headlines:</b> Google News RSS, context only.</li></ul>
+
+<h2>4. Prices and the Indian premium</h2>
+<p>International price in rupees (₹/10 g, before duty) = COMEX (US$/oz) × USD/INR ÷ 31.1035 × 10.</p>
+<p>Landed cost (before GST) = international price × (1 + 15% duty). This is the market-value basis; customs actually charges duty on the notified tariff value, which the details page also shows.</p>
+<p>Indian premium (+) or discount (−) = IBJA 999 closing rate ÷ landed cost − 1. Because IBJA's rate is set in the Indian afternoon, the COMEX reference is the average of the previous and same-day COMEX close. That timing mismatch makes the premium noisy by roughly ±1%.</p>
+<p>Indicative rate now = last IBJA close × (COMEX now × FBIL) ÷ (COMEX reference × USD/INR on that day). An estimate only; the next IBJA rate is what counts.</p>
+
+<h2>5. The call: three layers</h2>
+<ul><li><b>Layer 1, trader rules of thumb</b> (editable on the page): (1) buy after world gold in rupees falls at least 3% in 7 days, wait after it rises 3%; (2) wait when India trades more than 2% above import cost, buy when more than 2% below; (3) buying early costs interest (repo + your spread); (4) when nothing fires, buy in parts. The default numbers are starting points for traders to confirm, not taken from any published study.</li>
+<li><b>Layer 2, macro and micro factors:</b> momentum, the US real yield, the dollar and the rupee feed the learning model; the premium and duty feed the rules.</li>
+<li><b>Layer 3, learning loop:</b> see section 6.</li>
+<li><b>Combining:</b> each rule side counts only if, in the back-test, it was right more often than the opposite action, over at least 30 signals. Buy = +1, wait = −1; a positive sum gives "buy now", negative "wait", zero "buy part". A "buy now" or "wait" is softened to "buy part" if the rule behind it was wrong more often than right in the last 180 days of the back-test, or if a headline in the last 21 days mentions a gold import-duty cut. The learning model replaces the rules only if it beats "no change".</li>
+<li><b>Scoring a call</b> after 30 days on the IBJA closing rate: "buy now" is right if the price rose, "wait" if it fell, "buy part" if it moved less than 2%.</li></ul>
+
+<h2>6. Learning and honesty about results</h2>
+<ul><li>The model forecasts the % change of gold in rupees over 7 and 30 days from momentum, the change in the US real yield, the dollar index and USD/INR. Weights are fitted by ridge regression with heavy shrinkage towards "no change".</li>
+<li>Walk-forward test: every 5th trading day since 2018 the model is re-fitted only on outcomes known by then and asked to forecast. A variable keeps its weight only if it cuts out-of-sample error by at least 1%; the model as a whole must also beat "assume no change" by 1%. Otherwise every weight is set to 0, and the page says so.</li>
+<li>Expect weights of 0: gold behaves close to a random walk. The current back-test result, the weight status and every change are on the Track record tab and in data/model.json, with archived versions in data/models/.</li>
+<li>Every daily call and forecast is logged in data/predictions.json with its horizon, scored when due, and listed with misses in data/track_record.csv.</li>
+<li>Limits: the long back-test uses international gold in rupees, not IBJA rates, because only about four months of IBJA history are available free; duty changes are excluded. The premium rule is judged on that short IBJA history, so it stays unused until it has at least 30 signals. Rule sides are switched on and off using the whole back-test, which is in-sample. The recent good record of "buy on a dip" comes mostly from gold's 2018–2025 rise.</li></ul>
+
+<h2>7. What is not covered</h2>
+<ul><li>MCX futures, ETFs, SGB trading: not covered, no calls.</li>
+<li>Local Surat or Ahmedabad bullion rates and making charges: no free dated source. Enter your dealer's rate on the main screen to compare it with IBJA + GST.</li>
+<li>SPDR GLD holdings and RBI SGB prices: not automated (bot check, press-release text).</li></ul>
+</div></body></html>
