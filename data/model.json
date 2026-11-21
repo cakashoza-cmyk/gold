@@ -14,7 +14,7 @@
   }
  ],
  "version": "v1.1",
- "updated_ist": "2026-11-20 23:04 IST",
+ "updated_ist": "2026-11-21 16:10 IST",
  "horizons": {
   "7": {
    "gate": {
@@ -51,10 +51,10 @@
      0
     ],
     "why": {
-     "momentum": "weight set to 0: walk-forward error 3.919% with it vs 3.884% without it, so it did not cut error by at least 1%",
-     "real_yield": "weight set to 0: walk-forward error 3.884% with it vs 3.882% without it, so it did not cut error by at least 1%",
-     "dollar": "weight set to 0: walk-forward error 3.882% with it vs 3.856% without it, so it did not cut error by at least 1%",
-     "rupee": "weight set to 0: walk-forward error 3.856% with it vs 3.861% without it, so it did not cut error by at least 1%"
+     "momentum": "weight set to 0: walk-forward error 3.919% with it vs 3.883% without it, so it did not cut error by at least 1%",
+     "real_yield": "weight set to 0: walk-forward error 3.883% with it vs 3.881% without it, so it did not cut error by at least 1%",
+     "dollar": "weight set to 0: walk-forward error 3.881% with it vs 3.855% without it, so it did not cut error by at least 1%",
+     "rupee": "weight set to 0: walk-forward error 3.855% with it vs 3.861% without it, so it did not cut error by at least 1%"
     }
    },
    "weights": {
@@ -539,7 +539,7 @@
   ],
   [
    "2026-11-20",
-   1.03
+   0.9
   ]
  ],
  "data_last_date": "2026-11-21",
