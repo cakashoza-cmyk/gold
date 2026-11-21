@@ -3,7 +3,7 @@ Usage: python3 test/verify.py <base-url> [out-dir]"""
 import sys, json, asyncio
 from playwright.async_api import async_playwright
 BASE = sys.argv[1]; OUT = sys.argv[2] if len(sys.argv) > 2 else "shots"
-TABS = ["today", "landed", "rules", "trend", "track", "sources"]
+TABS = ["today", "landed", "rules", "trend", "track", "sources", "technical"]
 IDS = ["a-main", "a-reason", "p-big", "p-sub", "p-sub2", "p-ind", "i-main", "i-sub", "h-main", "h-sub", "f-main"]
 
 
@@ -32,6 +32,20 @@ async def main():
             txt = await pg.evaluate(f"document.getElementById('s-{t}').innerText")
             print(f"tab {t}: {len(txt)} chars; warn={'Could not render' in txt}")
             await pg.screenshot(path=f"{OUT}/details_{t}_mobile.png", full_page=True)
+        # technical view in all three languages (mobile and desktop)
+        await pg.click(".tab[data-s=technical]")
+        for lang in ("gu", "hi", "en"):
+            await pg.click(f"#ta-langs button[data-tl={lang}]"); await pg.wait_for_timeout(250)
+            txt = await pg.evaluate("document.getElementById('s-technical').innerText")
+            print(f"technical {lang}:", txt[:400].replace("\n", " | "))
+            await pg.screenshot(path=f"{OUT}/technical_{lang}_mobile.png", full_page=True)
+        dctx = await b.new_context(viewport={"width": 1366, "height": 900})
+        dp = await dctx.new_page(); dp.on("pageerror", lambda e: errs.append("pageerror: " + str(e)))
+        await dp.goto(BASE + "#tab-technical", wait_until="networkidle"); await dp.wait_for_timeout(1000)
+        await dp.click("#ta-langs button[data-tl=en]"); await dp.wait_for_timeout(250)
+        await dp.screenshot(path=f"{OUT}/technical_en_desktop.png", full_page=True)
+        await dctx.close()
+        await pg.click("#ta-langs button[data-tl=gu]")
         # rule edit recomputes the call
         await pg.click(".tab[data-s=rules]")
         await pg.fill("input[data-k=dipPct]", "10"); await pg.dispatch_event("input[data-k=dipPct]", "change"); await pg.wait_for_timeout(300)

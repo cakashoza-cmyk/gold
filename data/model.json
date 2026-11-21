@@ -1,6 +1,13 @@
 {
  "changelog": [
   {
+   "date": "2026-11-21",
+   "version": "v1.2",
+   "changes": [
+    "Technical indicators that passed the gate (cut 21-trading-day walk-forward error by at least 1% vs the drift and vs 'no change'): none, so no chart indicator feeds the call."
+   ]
+  },
+  {
    "date": "2026-11-20",
    "version": "v1.1",
    "changes": [
@@ -13,8 +20,8 @@
    ]
   }
  ],
- "version": "v1.1",
- "updated_ist": "2026-11-21 16:10 IST",
+ "version": "v1.2",
+ "updated_ist": "2026-11-21 19:51 IST",
  "horizons": {
   "7": {
    "gate": {
@@ -558,6 +565,2188 @@
   "Rule 'buy on a 3.0% dip, wait after a 3.0% jump' (30-day outcome, since 2017-11-06): right 52.5% of 398 signals (wait: 40.9% of 254, opposite action 59.1%, buy now: 72.9% of 144, opposite action 27.1%).",
   "Rule 'premium/discount above 2.0%': 19 signals in the IBJA history held, right 36.8% (buy now: 36.8% of 19).",
   "Rule sides used for today's call: 'buy after a dip'. Not used: 'wait after a jump', 'buy when India is at a discount', 'wait when India is at a premium'.",
+  "Chart indicators (14 tested, 2016-11-21 to 2026-11-21): none cut 21-day error by 1% vs the drift and 'no change', so none feeds the call. Closest on direction: 50-day average above/below 200-day (golden/death cross state), right 56.3% vs 59.9% for 'always the usual direction'. Support levels held 72.8% of touches vs 74.8% for random levels; resistance 63.7% vs 60.2%.",
   "Live track record: learning, too few results yet (0 scored)."
- ]
+ ],
+ "technical": {
+  "series": "International gold in rupees before duty (Rs/10 g) = COMEX gold x USD/INR (ECB) / 31.1035 x 10; highs/lows the same way",
+  "has_high_low": true,
+  "first_date": "2016-11-21",
+  "last_date": "2026-11-21",
+  "days": 2591,
+  "horizons": [
+   5,
+   10,
+   21
+  ],
+  "gate_horizon": 21,
+  "carry_pct": 12.0,
+  "indicators": {
+   "ma20": {
+    "name": "Price above/below 20-day average",
+    "5": {
+     "signals": 2387,
+     "days": 2387,
+     "hit": 48.9,
+     "drift_hit": 55.5,
+     "mae": 1.895,
+     "mae_nochange": 1.916,
+     "mae_drift": 1.895,
+     "err_cut_vs_drift": -0.04,
+     "err_cut_vs_nochange": 1.08,
+     "passes": false,
+     "decision": {
+      "cost_rule": 0.274,
+      "cost_now": 0.238,
+      "cost_wait": 0.322,
+      "save_vs_now": -0.036,
+      "save_vs_wait": 0.048
+     },
+     "periods": {
+      "2017-18": {
+       "n": 352,
+       "hit": 47.2,
+       "drift": 50.6
+      },
+      "2019-20": {
+       "n": 519,
+       "hit": 46.8,
+       "drift": 58.8
+      },
+      "2021-22": {
+       "n": 516,
+       "hit": 47.5,
+       "drift": 53.3
+      },
+      "2023-24": {
+       "n": 516,
+       "hit": 48.8,
+       "drift": 56.4
+      },
+      "2025-26": {
+       "n": 484,
+       "hit": 54.1,
+       "drift": 56.8
+      }
+     },
+     "periods_beating_drift": "0 of 5"
+    },
+    "10": {
+     "signals": 2382,
+     "days": 2382,
+     "hit": 50.6,
+     "drift_hit": 56.3,
+     "mae": 2.569,
+     "mae_nochange": 2.595,
+     "mae_drift": 2.567,
+     "err_cut_vs_drift": -0.09,
+     "err_cut_vs_nochange": 0.99,
+     "passes": false,
+     "decision": {
+      "cost_rule": 0.541,
+      "cost_now": 0.476,
+      "cost_wait": 0.653,
+      "save_vs_now": -0.065,
+      "save_vs_wait": 0.112
+     },
+     "periods": {
+      "2017-18": {
+       "n": 352,
+       "hit": 50.3,
+       "drift": 52.6
+      },
+      "2019-20": {
+       "n": 519,
+       "hit": 52.2,
+       "drift": 57.6
+      },
+      "2021-22": {
+       "n": 516,
+       "hit": 46.9,
+       "drift": 50.8
+      },
+      "2023-24": {
+       "n": 516,
+       "hit": 44.8,
+       "drift": 58.1
+      },
+      "2025-26": {
+       "n": 479,
+       "hit": 59.3,
+       "drift": 61.4
+      }
+     },
+     "periods_beating_drift": "0 of 5"
+    },
+    "21": {
+     "signals": 2371,
+     "days": 2371,
+     "hit": 52.4,
+     "drift_hit": 59.9,
+     "mae": 3.701,
+     "mae_nochange": 3.782,
+     "mae_drift": 3.701,
+     "err_cut_vs_drift": -0.02,
+     "err_cut_vs_nochange": 2.14,
+     "passes": false,
+     "decision": {
+      "cost_rule": 1.074,
+      "cost_now": 1.0,
+      "cost_wait": 1.411,
+      "save_vs_now": -0.074,
+      "save_vs_wait": 0.338
+     },
+     "periods": {
+      "2017-18": {
+       "n": 352,
+       "hit": 51.7,
+       "drift": 58.5
+      },
+      "2019-20": {
+       "n": 519,
+       "hit": 57.4,
+       "drift": 57.4
+      },
+      "2021-22": {
+       "n": 516,
+       "hit": 44.0,
+       "drift": 55.2
+      },
+      "2023-24": {
+       "n": 516,
+       "hit": 45.9,
+       "drift": 64.7
+      },
+      "2025-26": {
+       "n": 468,
+       "hit": 63.7,
+       "drift": 63.7
+      }
+     },
+     "periods_beating_drift": "0 of 5"
+    },
+    "passes_gate": false
+   },
+   "ma50": {
+    "name": "Price above/below 50-day average",
+    "5": {
+     "signals": 2387,
+     "days": 2387,
+     "hit": 50.9,
+     "drift_hit": 55.5,
+     "mae": 1.895,
+     "mae_nochange": 1.916,
+     "mae_drift": 1.895,
+     "err_cut_vs_drift": -0.04,
+     "err_cut_vs_nochange": 1.08,
+     "passes": false,
+     "decision": {
+      "cost_rule": 0.237,
+      "cost_now": 0.238,
+      "cost_wait": 0.322,
+      "save_vs_now": 0.001,
+      "save_vs_wait": 0.085
+     },
+     "periods": {
+      "2017-18": {
+       "n": 352,
+       "hit": 46.9,
+       "drift": 50.6
+      },
+      "2019-20": {
+       "n": 519,
+       "hit": 51.1,
+       "drift": 58.8
+      },
+      "2021-22": {
+       "n": 516,
+       "hit": 47.3,
+       "drift": 53.3
+      },
+      "2023-24": {
+       "n": 516,
+       "hit": 47.5,
+       "drift": 56.4
+      },
+      "2025-26": {
+       "n": 484,
+       "hit": 61.4,
+       "drift": 56.8
+      }
+     },
+     "periods_beating_drift": "1 of 5"
+    },
+    "10": {
+     "signals": 2382,
+     "days": 2382,
+     "hit": 53.6,
+     "drift_hit": 56.3,
+     "mae": 2.567,
+     "mae_nochange": 2.595,
+     "mae_drift": 2.567,
+     "err_cut_vs_drift": -0.02,
+     "err_cut_vs_nochange": 1.06,
+     "passes": false,
+     "decision": {
+      "cost_rule": 0.464,
+      "cost_now": 0.476,
+      "cost_wait": 0.653,
+      "save_vs_now": 0.012,
+      "save_vs_wait": 0.188
+     },
+     "periods": {
+      "2017-18": {
+       "n": 352,
+       "hit": 50.6,
+       "drift": 52.6
+      },
+      "2019-20": {
+       "n": 519,
+       "hit": 55.3,
+       "drift": 57.6
+      },
+      "2021-22": {
+       "n": 516,
+       "hit": 50.6,
+       "drift": 50.8
+      },
+      "2023-24": {
+       "n": 516,
+       "hit": 45.7,
+       "drift": 58.1
+      },
+      "2025-26": {
+       "n": 479,
+       "hit": 65.8,
+       "drift": 61.4
+      }
+     },
+     "periods_beating_drift": "1 of 5"
+    },
+    "21": {
+     "signals": 2371,
+     "days": 2371,
+     "hit": 54.6,
+     "drift_hit": 59.9,
+     "mae": 3.702,
+     "mae_nochange": 3.782,
+     "mae_drift": 3.701,
+     "err_cut_vs_drift": -0.04,
+     "err_cut_vs_nochange": 2.12,
+     "passes": false,
+     "decision": {
+      "cost_rule": 1.011,
+      "cost_now": 1.0,
+      "cost_wait": 1.411,
+      "save_vs_now": -0.011,
+      "save_vs_wait": 0.401
+     },
+     "periods": {
+      "2017-18": {
+       "n": 352,
+       "hit": 53.7,
+       "drift": 58.5
+      },
+      "2019-20": {
+       "n": 519,
+       "hit": 57.8,
+       "drift": 57.4
+      },
+      "2021-22": {
+       "n": 516,
+       "hit": 47.7,
+       "drift": 55.2
+      },
+      "2023-24": {
+       "n": 516,
+       "hit": 46.1,
+       "drift": 64.7
+      },
+      "2025-26": {
+       "n": 468,
+       "hit": 68.8,
+       "drift": 63.7
+      }
+     },
+     "periods_beating_drift": "2 of 5"
+    },
+    "passes_gate": false
+   },
+   "ma200": {
+    "name": "Price above/below 200-day average",
+    "5": {
+     "signals": 2387,
+     "days": 2387,
+     "hit": 52.4,
+     "drift_hit": 55.5,
+     "mae": 1.903,
+     "mae_nochange": 1.916,
+     "mae_drift": 1.895,
+     "err_cut_vs_drift": -0.42,
+     "err_cut_vs_nochange": 0.71,
+     "passes": false,
+     "decision": {
+      "cost_rule": 0.248,
+      "cost_now": 0.238,
+      "cost_wait": 0.322,
+      "save_vs_now": -0.01,
+      "save_vs_wait": 0.074
+     },
+     "periods": {
+      "2017-18": {
+       "n": 352,
+       "hit": 45.5,
+       "drift": 50.6
+      },
+      "2019-20": {
+       "n": 519,
+       "hit": 53.9,
+       "drift": 58.8
+      },
+      "2021-22": {
+       "n": 516,
+       "hit": 45.5,
+       "drift": 53.3
+      },
+      "2023-24": {
+       "n": 516,
+       "hit": 55.2,
+       "drift": 56.4
+      },
+      "2025-26": {
+       "n": 484,
+       "hit": 59.9,
+       "drift": 56.8
+      }
+     },
+     "periods_beating_drift": "1 of 5"
+    },
+    "10": {
+     "signals": 2382,
+     "days": 2382,
+     "hit": 53.9,
+     "drift_hit": 56.3,
+     "mae": 2.585,
+     "mae_nochange": 2.595,
+     "mae_drift": 2.567,
+     "err_cut_vs_drift": -0.69,
+     "err_cut_vs_nochange": 0.4,
+     "passes": false,
+     "decision": {
+      "cost_rule": 0.505,
+      "cost_now": 0.476,
+      "cost_wait": 0.653,
+      "save_vs_now": -0.029,
+      "save_vs_wait": 0.148
+     },
+     "periods": {
+      "2017-18": {
+       "n": 352,
+       "hit": 46.9,
+       "drift": 52.6
+      },
+      "2019-20": {
+       "n": 519,
+       "hit": 53.9,
+       "drift": 57.6
+      },
+      "2021-22": {
+       "n": 516,
+       "hit": 45.3,
+       "drift": 50.8
+      },
+      "2023-24": {
+       "n": 516,
+       "hit": 56.2,
+       "drift": 58.1
+      },
+      "2025-26": {
+       "n": 479,
+       "hit": 65.6,
+       "drift": 61.4
+      }
+     },
+     "periods_beating_drift": "1 of 5"
+    },
+    "21": {
+     "signals": 2371,
+     "days": 2371,
+     "hit": 53.9,
+     "drift_hit": 59.9,
+     "mae": 3.716,
+     "mae_nochange": 3.782,
+     "mae_drift": 3.701,
+     "err_cut_vs_drift": -0.42,
+     "err_cut_vs_nochange": 1.75,
+     "passes": false,
+     "decision": {
+      "cost_rule": 1.084,
+      "cost_now": 1.0,
+      "cost_wait": 1.411,
+      "save_vs_now": -0.084,
+      "save_vs_wait": 0.327
+     },
+     "periods": {
+      "2017-18": {
+       "n": 352,
+       "hit": 47.7,
+       "drift": 58.5
+      },
+      "2019-20": {
+       "n": 519,
+       "hit": 53.4,
+       "drift": 57.4
+      },
+      "2021-22": {
+       "n": 516,
+       "hit": 37.8,
+       "drift": 55.2
+      },
+      "2023-24": {
+       "n": 516,
+       "hit": 62.4,
+       "drift": 64.7
+      },
+      "2025-26": {
+       "n": 468,
+       "hit": 67.3,
+       "drift": 63.7
+      }
+     },
+     "periods_beating_drift": "1 of 5"
+    },
+    "passes_gate": false
+   },
+   "ma50_200": {
+    "name": "50-day average above/below 200-day (golden/death cross state)",
+    "5": {
+     "signals": 2387,
+     "days": 2387,
+     "hit": 53.0,
+     "drift_hit": 55.5,
+     "mae": 1.906,
+     "mae_nochange": 1.916,
+     "mae_drift": 1.895,
+     "err_cut_vs_drift": -0.61,
+     "err_cut_vs_nochange": 0.52,
+     "passes": false,
+     "decision": {
+      "cost_rule": 0.227,
+      "cost_now": 0.238,
+      "cost_wait": 0.322,
+      "save_vs_now": 0.011,
+      "save_vs_wait": 0.095
+     },
+     "periods": {
+      "2017-18": {
+       "n": 352,
+       "hit": 42.3,
+       "drift": 50.6
+      },
+      "2019-20": {
+       "n": 519,
+       "hit": 57.2,
+       "drift": 58.8
+      },
+      "2021-22": {
+       "n": 516,
+       "hit": 48.6,
+       "drift": 53.3
+      },
+      "2023-24": {
+       "n": 516,
+       "hit": 54.7,
+       "drift": 56.4
+      },
+      "2025-26": {
+       "n": 484,
+       "hit": 59.3,
+       "drift": 56.8
+      }
+     },
+     "periods_beating_drift": "1 of 5"
+    },
+    "10": {
+     "signals": 2382,
+     "days": 2382,
+     "hit": 53.7,
+     "drift_hit": 56.3,
+     "mae": 2.591,
+     "mae_nochange": 2.595,
+     "mae_drift": 2.567,
+     "err_cut_vs_drift": -0.95,
+     "err_cut_vs_nochange": 0.15,
+     "passes": false,
+     "decision": {
+      "cost_rule": 0.463,
+      "cost_now": 0.476,
+      "cost_wait": 0.653,
+      "save_vs_now": 0.013,
+      "save_vs_wait": 0.189
+     },
+     "periods": {
+      "2017-18": {
+       "n": 352,
+       "hit": 42.0,
+       "drift": 52.6
+      },
+      "2019-20": {
+       "n": 519,
+       "hit": 56.1,
+       "drift": 57.6
+      },
+      "2021-22": {
+       "n": 516,
+       "hit": 44.6,
+       "drift": 50.8
+      },
+      "2023-24": {
+       "n": 516,
+       "hit": 57.2,
+       "drift": 58.1
+      },
+      "2025-26": {
+       "n": 479,
+       "hit": 65.8,
+       "drift": 61.4
+      }
+     },
+     "periods_beating_drift": "1 of 5"
+    },
+    "21": {
+     "signals": 2371,
+     "days": 2371,
+     "hit": 56.3,
+     "drift_hit": 59.9,
+     "mae": 3.739,
+     "mae_nochange": 3.782,
+     "mae_drift": 3.701,
+     "err_cut_vs_drift": -1.04,
+     "err_cut_vs_nochange": 1.14,
+     "passes": false,
+     "decision": {
+      "cost_rule": 0.969,
+      "cost_now": 1.0,
+      "cost_wait": 1.411,
+      "save_vs_now": 0.031,
+      "save_vs_wait": 0.442
+     },
+     "periods": {
+      "2017-18": {
+       "n": 352,
+       "hit": 47.4,
+       "drift": 58.5
+      },
+      "2019-20": {
+       "n": 519,
+       "hit": 55.9,
+       "drift": 57.4
+      },
+      "2021-22": {
+       "n": 516,
+       "hit": 42.4,
+       "drift": 55.2
+      },
+      "2023-24": {
+       "n": 516,
+       "hit": 63.4,
+       "drift": 64.7
+      },
+      "2025-26": {
+       "n": 468,
+       "hit": 70.9,
+       "drift": 63.7
+      }
+     },
+     "periods_beating_drift": "1 of 5"
+    },
+    "passes_gate": false
+   },
+   "ma20_50": {
+    "name": "20-day average above/below 50-day",
+    "5": {
+     "signals": 2387,
+     "days": 2387,
+     "hit": 52.4,
+     "drift_hit": 55.5,
+     "mae": 1.895,
+     "mae_nochange": 1.916,
+     "mae_drift": 1.895,
+     "err_cut_vs_drift": -0.04,
+     "err_cut_vs_nochange": 1.08,
+     "passes": false,
+     "decision": {
+      "cost_rule": 0.199,
+      "cost_now": 0.238,
+      "cost_wait": 0.322,
+      "save_vs_now": 0.039,
+      "save_vs_wait": 0.123
+     },
+     "periods": {
+      "2017-18": {
+       "n": 352,
+       "hit": 46.0,
+       "drift": 50.6
+      },
+      "2019-20": {
+       "n": 519,
+       "hit": 53.8,
+       "drift": 58.8
+      },
+      "2021-22": {
+       "n": 516,
+       "hit": 50.6,
+       "drift": 53.3
+      },
+      "2023-24": {
+       "n": 516,
+       "hit": 49.0,
+       "drift": 56.4
+      },
+      "2025-26": {
+       "n": 484,
+       "hit": 61.2,
+       "drift": 56.8
+      }
+     },
+     "periods_beating_drift": "1 of 5"
+    },
+    "10": {
+     "signals": 2382,
+     "days": 2382,
+     "hit": 55.4,
+     "drift_hit": 56.3,
+     "mae": 2.558,
+     "mae_nochange": 2.595,
+     "mae_drift": 2.567,
+     "err_cut_vs_drift": 0.35,
+     "err_cut_vs_nochange": 1.43,
+     "passes": false,
+     "decision": {
+      "cost_rule": 0.409,
+      "cost_now": 0.476,
+      "cost_wait": 0.653,
+      "save_vs_now": 0.067,
+      "save_vs_wait": 0.244
+     },
+     "periods": {
+      "2017-18": {
+       "n": 352,
+       "hit": 48.0,
+       "drift": 52.6
+      },
+      "2019-20": {
+       "n": 519,
+       "hit": 57.6,
+       "drift": 57.6
+      },
+      "2021-22": {
+       "n": 516,
+       "hit": 56.2,
+       "drift": 50.8
+      },
+      "2023-24": {
+       "n": 516,
+       "hit": 47.7,
+       "drift": 58.1
+      },
+      "2025-26": {
+       "n": 479,
+       "hit": 66.0,
+       "drift": 61.4
+      }
+     },
+     "periods_beating_drift": "2 of 5"
+    },
+    "21": {
+     "signals": 2371,
+     "days": 2371,
+     "hit": 54.3,
+     "drift_hit": 59.9,
+     "mae": 3.703,
+     "mae_nochange": 3.782,
+     "mae_drift": 3.701,
+     "err_cut_vs_drift": -0.07,
+     "err_cut_vs_nochange": 2.1,
+     "passes": false,
+     "decision": {
+      "cost_rule": 0.965,
+      "cost_now": 1.0,
+      "cost_wait": 1.411,
+      "save_vs_now": 0.035,
+      "save_vs_wait": 0.447
+     },
+     "periods": {
+      "2017-18": {
+       "n": 352,
+       "hit": 47.2,
+       "drift": 58.5
+      },
+      "2019-20": {
+       "n": 519,
+       "hit": 57.0,
+       "drift": 57.4
+      },
+      "2021-22": {
+       "n": 516,
+       "hit": 49.0,
+       "drift": 55.2
+      },
+      "2023-24": {
+       "n": 516,
+       "hit": 48.1,
+       "drift": 64.7
+      },
+      "2025-26": {
+       "n": 468,
+       "hit": 69.4,
+       "drift": 63.7
+      }
+     },
+     "periods_beating_drift": "1 of 5"
+    },
+    "passes_gate": false
+   },
+   "cross_fresh": {
+    "name": "Fresh 50/200-day cross (last 10 days)",
+    "5": {
+     "signals": 141,
+     "days": 2387,
+     "hit": 42.6,
+     "drift_hit": 59.6,
+     "mae": 1.896,
+     "mae_nochange": 1.916,
+     "mae_drift": 1.895,
+     "err_cut_vs_drift": -0.09,
+     "err_cut_vs_nochange": 1.03,
+     "passes": false,
+     "decision": {
+      "cost_rule": 0.285,
+      "cost_now": 0.238,
+      "cost_wait": 0.322,
+      "save_vs_now": -0.047,
+      "save_vs_wait": 0.037
+     },
+     "periods": {
+      "2017-18": {
+       "n": 23,
+       "hit": 21.7,
+       "drift": 65.2
+      },
+      "2021-22": {
+       "n": 70,
+       "hit": 58.6,
+       "drift": 50.0
+      },
+      "2023-24": {
+       "n": 22,
+       "hit": 13.6,
+       "drift": 59.1
+      }
+     },
+     "periods_beating_drift": "1 of 3"
+    },
+    "10": {
+     "signals": 141,
+     "days": 2382,
+     "hit": 41.1,
+     "drift_hit": 58.2,
+     "mae": 2.578,
+     "mae_nochange": 2.595,
+     "mae_drift": 2.567,
+     "err_cut_vs_drift": -0.42,
+     "err_cut_vs_nochange": 0.67,
+     "passes": false,
+     "decision": {
+      "cost_rule": 0.581,
+      "cost_now": 0.476,
+      "cost_wait": 0.653,
+      "save_vs_now": -0.105,
+      "save_vs_wait": 0.072
+     },
+     "periods": {
+      "2017-18": {
+       "n": 23,
+       "hit": 13.0,
+       "drift": 56.5
+      },
+      "2021-22": {
+       "n": 70,
+       "hit": 58.6,
+       "drift": 44.3
+      },
+      "2023-24": {
+       "n": 22,
+       "hit": 31.8,
+       "drift": 59.1
+      }
+     },
+     "periods_beating_drift": "1 of 3"
+    },
+    "21": {
+     "signals": 141,
+     "days": 2371,
+     "hit": 47.5,
+     "drift_hit": 60.3,
+     "mae": 3.721,
+     "mae_nochange": 3.782,
+     "mae_drift": 3.701,
+     "err_cut_vs_drift": -0.55,
+     "err_cut_vs_nochange": 1.63,
+     "passes": false,
+     "decision": {
+      "cost_rule": 1.223,
+      "cost_now": 1.0,
+      "cost_wait": 1.411,
+      "save_vs_now": -0.223,
+      "save_vs_wait": 0.189
+     },
+     "periods": {
+      "2017-18": {
+       "n": 23,
+       "hit": 0.0,
+       "drift": 43.5
+      },
+      "2021-22": {
+       "n": 70,
+       "hit": 64.3,
+       "drift": 41.4
+      },
+      "2023-24": {
+       "n": 22,
+       "hit": 63.6,
+       "drift": 90.9
+      }
+     },
+     "periods_beating_drift": "1 of 3"
+    },
+    "passes_gate": false
+   },
+   "rsi_rev": {
+    "name": "RSI(14): below 30 = up, above 70 = down (reversal reading)",
+    "5": {
+     "signals": 222,
+     "days": 2387,
+     "hit": 48.2,
+     "drift_hit": 58.6,
+     "mae": 1.902,
+     "mae_nochange": 1.916,
+     "mae_drift": 1.895,
+     "err_cut_vs_drift": -0.37,
+     "err_cut_vs_nochange": 0.76,
+     "passes": false,
+     "decision": {
+      "cost_rule": 0.275,
+      "cost_now": 0.238,
+      "cost_wait": 0.322,
+      "save_vs_now": -0.037,
+      "save_vs_wait": 0.047
+     },
+     "periods": {
+      "2019-20": {
+       "n": 62,
+       "hit": 53.2,
+       "drift": 46.8
+      },
+      "2021-22": {
+       "n": 20,
+       "hit": 55.0,
+       "drift": 75.0
+      },
+      "2023-24": {
+       "n": 49,
+       "hit": 44.9,
+       "drift": 61.2
+      },
+      "2025-26": {
+       "n": 78,
+       "hit": 38.5,
+       "drift": 65.4
+      }
+     },
+     "periods_beating_drift": "1 of 4"
+    },
+    "10": {
+     "signals": 222,
+     "days": 2382,
+     "hit": 50.9,
+     "drift_hit": 55.9,
+     "mae": 2.575,
+     "mae_nochange": 2.595,
+     "mae_drift": 2.567,
+     "err_cut_vs_drift": -0.33,
+     "err_cut_vs_nochange": 0.76,
+     "passes": false,
+     "decision": {
+      "cost_rule": 0.549,
+      "cost_now": 0.476,
+      "cost_wait": 0.653,
+      "save_vs_now": -0.073,
+      "save_vs_wait": 0.103
+     },
+     "periods": {
+      "2019-20": {
+       "n": 62,
+       "hit": 53.2,
+       "drift": 46.8
+      },
+      "2021-22": {
+       "n": 20,
+       "hit": 70.0,
+       "drift": 60.0
+      },
+      "2023-24": {
+       "n": 49,
+       "hit": 59.2,
+       "drift": 55.1
+      },
+      "2025-26": {
+       "n": 78,
+       "hit": 32.1,
+       "drift": 66.7
+      }
+     },
+     "periods_beating_drift": "3 of 4"
+    },
+    "21": {
+     "signals": 221,
+     "days": 2371,
+     "hit": 43.4,
+     "drift_hit": 63.8,
+     "mae": 3.713,
+     "mae_nochange": 3.782,
+     "mae_drift": 3.701,
+     "err_cut_vs_drift": -0.34,
+     "err_cut_vs_nochange": 1.83,
+     "passes": false,
+     "decision": {
+      "cost_rule": 1.224,
+      "cost_now": 1.0,
+      "cost_wait": 1.411,
+      "save_vs_now": -0.224,
+      "save_vs_wait": 0.188
+     },
+     "periods": {
+      "2019-20": {
+       "n": 62,
+       "hit": 56.5,
+       "drift": 43.5
+      },
+      "2021-22": {
+       "n": 20,
+       "hit": 65.0,
+       "drift": 65.0
+      },
+      "2023-24": {
+       "n": 49,
+       "hit": 42.9,
+       "drift": 71.4
+      },
+      "2025-26": {
+       "n": 77,
+       "hit": 24.7,
+       "drift": 77.9
+      }
+     },
+     "periods_beating_drift": "1 of 4"
+    },
+    "passes_gate": false
+   },
+   "rsi_mom": {
+    "name": "RSI(14) above/below 50 (momentum reading)",
+    "5": {
+     "signals": 2387,
+     "days": 2387,
+     "hit": 49.1,
+     "drift_hit": 55.5,
+     "mae": 1.895,
+     "mae_nochange": 1.916,
+     "mae_drift": 1.895,
+     "err_cut_vs_drift": -0.04,
+     "err_cut_vs_nochange": 1.08,
+     "passes": false,
+     "decision": {
+      "cost_rule": 0.263,
+      "cost_now": 0.238,
+      "cost_wait": 0.322,
+      "save_vs_now": -0.025,
+      "save_vs_wait": 0.059
+     },
+     "periods": {
+      "2017-18": {
+       "n": 352,
+       "hit": 44.9,
+       "drift": 50.6
+      },
+      "2019-20": {
+       "n": 519,
+       "hit": 47.4,
+       "drift": 58.8
+      },
+      "2021-22": {
+       "n": 516,
+       "hit": 47.5,
+       "drift": 53.3
+      },
+      "2023-24": {
+       "n": 516,
+       "hit": 48.3,
+       "drift": 56.4
+      },
+      "2025-26": {
+       "n": 484,
+       "hit": 56.8,
+       "drift": 56.8
+      }
+     },
+     "periods_beating_drift": "0 of 5"
+    },
+    "10": {
+     "signals": 2382,
+     "days": 2382,
+     "hit": 51.8,
+     "drift_hit": 56.3,
+     "mae": 2.57,
+     "mae_nochange": 2.595,
+     "mae_drift": 2.567,
+     "err_cut_vs_drift": -0.11,
+     "err_cut_vs_nochange": 0.97,
+     "passes": false,
+     "decision": {
+      "cost_rule": 0.498,
+      "cost_now": 0.476,
+      "cost_wait": 0.653,
+      "save_vs_now": -0.022,
+      "save_vs_wait": 0.155
+     },
+     "periods": {
+      "2017-18": {
+       "n": 352,
+       "hit": 49.7,
+       "drift": 52.6
+      },
+      "2019-20": {
+       "n": 519,
+       "hit": 52.4,
+       "drift": 57.6
+      },
+      "2021-22": {
+       "n": 516,
+       "hit": 48.1,
+       "drift": 50.8
+      },
+      "2023-24": {
+       "n": 516,
+       "hit": 46.5,
+       "drift": 58.1
+      },
+      "2025-26": {
+       "n": 479,
+       "hit": 62.4,
+       "drift": 61.4
+      }
+     },
+     "periods_beating_drift": "1 of 5"
+    },
+    "21": {
+     "signals": 2371,
+     "days": 2371,
+     "hit": 53.1,
+     "drift_hit": 59.9,
+     "mae": 3.702,
+     "mae_nochange": 3.782,
+     "mae_drift": 3.701,
+     "err_cut_vs_drift": -0.03,
+     "err_cut_vs_nochange": 2.14,
+     "passes": false,
+     "decision": {
+      "cost_rule": 1.053,
+      "cost_now": 1.0,
+      "cost_wait": 1.411,
+      "save_vs_now": -0.053,
+      "save_vs_wait": 0.358
+     },
+     "periods": {
+      "2017-18": {
+       "n": 352,
+       "hit": 52.8,
+       "drift": 58.5
+      },
+      "2019-20": {
+       "n": 519,
+       "hit": 56.1,
+       "drift": 57.4
+      },
+      "2021-22": {
+       "n": 516,
+       "hit": 46.7,
+       "drift": 55.2
+      },
+      "2023-24": {
+       "n": 516,
+       "hit": 45.3,
+       "drift": 64.7
+      },
+      "2025-26": {
+       "n": 468,
+       "hit": 65.4,
+       "drift": 63.7
+      }
+     },
+     "periods_beating_drift": "1 of 5"
+    },
+    "passes_gate": false
+   },
+   "macd_sig": {
+    "name": "MACD above/below its signal line",
+    "5": {
+     "signals": 2387,
+     "days": 2387,
+     "hit": 49.2,
+     "drift_hit": 55.5,
+     "mae": 1.897,
+     "mae_nochange": 1.916,
+     "mae_drift": 1.895,
+     "err_cut_vs_drift": -0.12,
+     "err_cut_vs_nochange": 1.0,
+     "passes": false,
+     "decision": {
+      "cost_rule": 0.272,
+      "cost_now": 0.238,
+      "cost_wait": 0.322,
+      "save_vs_now": -0.034,
+      "save_vs_wait": 0.05
+     },
+     "periods": {
+      "2017-18": {
+       "n": 352,
+       "hit": 52.0,
+       "drift": 50.6
+      },
+      "2019-20": {
+       "n": 519,
+       "hit": 46.8,
+       "drift": 58.8
+      },
+      "2021-22": {
+       "n": 516,
+       "hit": 47.5,
+       "drift": 53.3
+      },
+      "2023-24": {
+       "n": 516,
+       "hit": 47.9,
+       "drift": 56.4
+      },
+      "2025-26": {
+       "n": 484,
+       "hit": 53.1,
+       "drift": 56.8
+      }
+     },
+     "periods_beating_drift": "1 of 5"
+    },
+    "10": {
+     "signals": 2382,
+     "days": 2382,
+     "hit": 51.1,
+     "drift_hit": 56.3,
+     "mae": 2.57,
+     "mae_nochange": 2.595,
+     "mae_drift": 2.567,
+     "err_cut_vs_drift": -0.11,
+     "err_cut_vs_nochange": 0.97,
+     "passes": false,
+     "decision": {
+      "cost_rule": 0.553,
+      "cost_now": 0.476,
+      "cost_wait": 0.653,
+      "save_vs_now": -0.077,
+      "save_vs_wait": 0.099
+     },
+     "periods": {
+      "2017-18": {
+       "n": 352,
+       "hit": 54.5,
+       "drift": 52.6
+      },
+      "2019-20": {
+       "n": 519,
+       "hit": 53.0,
+       "drift": 57.6
+      },
+      "2021-22": {
+       "n": 516,
+       "hit": 46.1,
+       "drift": 50.8
+      },
+      "2023-24": {
+       "n": 516,
+       "hit": 46.5,
+       "drift": 58.1
+      },
+      "2025-26": {
+       "n": 479,
+       "hit": 57.0,
+       "drift": 61.4
+      }
+     },
+     "periods_beating_drift": "1 of 5"
+    },
+    "21": {
+     "signals": 2371,
+     "days": 2371,
+     "hit": 51.8,
+     "drift_hit": 59.9,
+     "mae": 3.704,
+     "mae_nochange": 3.782,
+     "mae_drift": 3.701,
+     "err_cut_vs_drift": -0.08,
+     "err_cut_vs_nochange": 2.08,
+     "passes": false,
+     "decision": {
+      "cost_rule": 1.139,
+      "cost_now": 1.0,
+      "cost_wait": 1.411,
+      "save_vs_now": -0.139,
+      "save_vs_wait": 0.273
+     },
+     "periods": {
+      "2017-18": {
+       "n": 352,
+       "hit": 54.8,
+       "drift": 58.5
+      },
+      "2019-20": {
+       "n": 519,
+       "hit": 53.2,
+       "drift": 57.4
+      },
+      "2021-22": {
+       "n": 516,
+       "hit": 44.8,
+       "drift": 55.2
+      },
+      "2023-24": {
+       "n": 516,
+       "hit": 51.2,
+       "drift": 64.7
+      },
+      "2025-26": {
+       "n": 468,
+       "hit": 56.6,
+       "drift": 63.7
+      }
+     },
+     "periods_beating_drift": "0 of 5"
+    },
+    "passes_gate": false
+   },
+   "macd_zero": {
+    "name": "MACD above/below zero",
+    "5": {
+     "signals": 2387,
+     "days": 2387,
+     "hit": 50.9,
+     "drift_hit": 55.5,
+     "mae": 1.896,
+     "mae_nochange": 1.916,
+     "mae_drift": 1.895,
+     "err_cut_vs_drift": -0.08,
+     "err_cut_vs_nochange": 1.05,
+     "passes": false,
+     "decision": {
+      "cost_rule": 0.237,
+      "cost_now": 0.238,
+      "cost_wait": 0.322,
+      "save_vs_now": 0.001,
+      "save_vs_wait": 0.085
+     },
+     "periods": {
+      "2017-18": {
+       "n": 352,
+       "hit": 48.6,
+       "drift": 50.6
+      },
+      "2019-20": {
+       "n": 519,
+       "hit": 53.2,
+       "drift": 58.8
+      },
+      "2021-22": {
+       "n": 516,
+       "hit": 45.0,
+       "drift": 53.3
+      },
+      "2023-24": {
+       "n": 516,
+       "hit": 46.7,
+       "drift": 56.4
+      },
+      "2025-26": {
+       "n": 484,
+       "hit": 60.7,
+       "drift": 56.8
+      }
+     },
+     "periods_beating_drift": "1 of 5"
+    },
+    "10": {
+     "signals": 2382,
+     "days": 2382,
+     "hit": 53.5,
+     "drift_hit": 56.3,
+     "mae": 2.57,
+     "mae_nochange": 2.595,
+     "mae_drift": 2.567,
+     "err_cut_vs_drift": -0.13,
+     "err_cut_vs_nochange": 0.95,
+     "passes": false,
+     "decision": {
+      "cost_rule": 0.461,
+      "cost_now": 0.476,
+      "cost_wait": 0.653,
+      "save_vs_now": 0.015,
+      "save_vs_wait": 0.192
+     },
+     "periods": {
+      "2017-18": {
+       "n": 352,
+       "hit": 53.4,
+       "drift": 52.6
+      },
+      "2019-20": {
+       "n": 519,
+       "hit": 57.4,
+       "drift": 57.6
+      },
+      "2021-22": {
+       "n": 516,
+       "hit": 46.3,
+       "drift": 50.8
+      },
+      "2023-24": {
+       "n": 516,
+       "hit": 45.7,
+       "drift": 58.1
+      },
+      "2025-26": {
+       "n": 479,
+       "hit": 65.6,
+       "drift": 61.4
+      }
+     },
+     "periods_beating_drift": "2 of 5"
+    },
+    "21": {
+     "signals": 2371,
+     "days": 2371,
+     "hit": 55.3,
+     "drift_hit": 59.9,
+     "mae": 3.7,
+     "mae_nochange": 3.782,
+     "mae_drift": 3.701,
+     "err_cut_vs_drift": 0.02,
+     "err_cut_vs_nochange": 2.18,
+     "passes": false,
+     "decision": {
+      "cost_rule": 0.957,
+      "cost_now": 1.0,
+      "cost_wait": 1.411,
+      "save_vs_now": 0.043,
+      "save_vs_wait": 0.454
+     },
+     "periods": {
+      "2017-18": {
+       "n": 352,
+       "hit": 53.7,
+       "drift": 58.5
+      },
+      "2019-20": {
+       "n": 519,
+       "hit": 58.4,
+       "drift": 57.4
+      },
+      "2021-22": {
+       "n": 516,
+       "hit": 47.3,
+       "drift": 55.2
+      },
+      "2023-24": {
+       "n": 516,
+       "hit": 48.8,
+       "drift": 64.7
+      },
+      "2025-26": {
+       "n": 468,
+       "hit": 69.0,
+       "drift": 63.7
+      }
+     },
+     "periods_beating_drift": "2 of 5"
+    },
+    "passes_gate": false
+   },
+   "don20": {
+    "name": "20-day breakout (Donchian)",
+    "5": {
+     "signals": 307,
+     "days": 2387,
+     "hit": 46.6,
+     "drift_hit": 57.7,
+     "mae": 1.896,
+     "mae_nochange": 1.916,
+     "mae_drift": 1.895,
+     "err_cut_vs_drift": -0.06,
+     "err_cut_vs_nochange": 1.06,
+     "passes": false,
+     "decision": {
+      "cost_rule": 0.289,
+      "cost_now": 0.238,
+      "cost_wait": 0.322,
+      "save_vs_now": -0.051,
+      "save_vs_wait": 0.033
+     },
+     "periods": {
+      "2017-18": {
+       "n": 36,
+       "hit": 33.3,
+       "drift": 50.0
+      },
+      "2019-20": {
+       "n": 70,
+       "hit": 48.6,
+       "drift": 57.1
+      },
+      "2021-22": {
+       "n": 54,
+       "hit": 40.7,
+       "drift": 61.1
+      },
+      "2023-24": {
+       "n": 71,
+       "hit": 49.3,
+       "drift": 59.2
+      },
+      "2025-26": {
+       "n": 76,
+       "hit": 52.6,
+       "drift": 57.9
+      }
+     },
+     "periods_beating_drift": "0 of 5"
+    },
+    "10": {
+     "signals": 305,
+     "days": 2382,
+     "hit": 49.2,
+     "drift_hit": 57.7,
+     "mae": 2.568,
+     "mae_nochange": 2.595,
+     "mae_drift": 2.567,
+     "err_cut_vs_drift": -0.06,
+     "err_cut_vs_nochange": 1.02,
+     "passes": false,
+     "decision": {
+      "cost_rule": 0.574,
+      "cost_now": 0.476,
+      "cost_wait": 0.653,
+      "save_vs_now": -0.098,
+      "save_vs_wait": 0.078
+     },
+     "periods": {
+      "2017-18": {
+       "n": 36,
+       "hit": 41.7,
+       "drift": 58.3
+      },
+      "2019-20": {
+       "n": 70,
+       "hit": 54.3,
+       "drift": 57.1
+      },
+      "2021-22": {
+       "n": 54,
+       "hit": 38.9,
+       "drift": 40.7
+      },
+      "2023-24": {
+       "n": 71,
+       "hit": 39.4,
+       "drift": 60.6
+      },
+      "2025-26": {
+       "n": 74,
+       "hit": 64.9,
+       "drift": 67.6
+      }
+     },
+     "periods_beating_drift": "0 of 5"
+    },
+    "21": {
+     "signals": 304,
+     "days": 2371,
+     "hit": 53.0,
+     "drift_hit": 63.8,
+     "mae": 3.7,
+     "mae_nochange": 3.782,
+     "mae_drift": 3.701,
+     "err_cut_vs_drift": 0.02,
+     "err_cut_vs_nochange": 2.18,
+     "passes": false,
+     "decision": {
+      "cost_rule": 1.198,
+      "cost_now": 1.0,
+      "cost_wait": 1.411,
+      "save_vs_now": -0.198,
+      "save_vs_wait": 0.214
+     },
+     "periods": {
+      "2017-18": {
+       "n": 36,
+       "hit": 55.6,
+       "drift": 66.7
+      },
+      "2019-20": {
+       "n": 70,
+       "hit": 54.3,
+       "drift": 60.0
+      },
+      "2021-22": {
+       "n": 54,
+       "hit": 46.3,
+       "drift": 63.0
+      },
+      "2023-24": {
+       "n": 71,
+       "hit": 42.3,
+       "drift": 66.2
+      },
+      "2025-26": {
+       "n": 73,
+       "hit": 65.8,
+       "drift": 64.4
+      }
+     },
+     "periods_beating_drift": "1 of 5"
+    },
+    "passes_gate": false
+   },
+   "don55": {
+    "name": "55-day breakout (Donchian)",
+    "5": {
+     "signals": 197,
+     "days": 2387,
+     "hit": 51.3,
+     "drift_hit": 58.9,
+     "mae": 1.899,
+     "mae_nochange": 1.916,
+     "mae_drift": 1.895,
+     "err_cut_vs_drift": -0.24,
+     "err_cut_vs_nochange": 0.89,
+     "passes": false,
+     "decision": {
+      "cost_rule": 0.277,
+      "cost_now": 0.238,
+      "cost_wait": 0.322,
+      "save_vs_now": -0.039,
+      "save_vs_wait": 0.045
+     },
+     "periods": {
+      "2019-20": {
+       "n": 48,
+       "hit": 47.9,
+       "drift": 54.2
+      },
+      "2021-22": {
+       "n": 23,
+       "hit": 47.8,
+       "drift": 78.3
+      },
+      "2023-24": {
+       "n": 48,
+       "hit": 58.3,
+       "drift": 56.2
+      },
+      "2025-26": {
+       "n": 60,
+       "hit": 58.3,
+       "drift": 60.0
+      }
+     },
+     "periods_beating_drift": "1 of 4"
+    },
+    "10": {
+     "signals": 195,
+     "days": 2382,
+     "hit": 52.3,
+     "drift_hit": 60.0,
+     "mae": 2.57,
+     "mae_nochange": 2.595,
+     "mae_drift": 2.567,
+     "err_cut_vs_drift": -0.14,
+     "err_cut_vs_nochange": 0.94,
+     "passes": false,
+     "decision": {
+      "cost_rule": 0.567,
+      "cost_now": 0.476,
+      "cost_wait": 0.653,
+      "save_vs_now": -0.091,
+      "save_vs_wait": 0.086
+     },
+     "periods": {
+      "2019-20": {
+       "n": 48,
+       "hit": 52.1,
+       "drift": 62.5
+      },
+      "2021-22": {
+       "n": 23,
+       "hit": 43.5,
+       "drift": 47.8
+      },
+      "2023-24": {
+       "n": 48,
+       "hit": 45.8,
+       "drift": 56.2
+      },
+      "2025-26": {
+       "n": 58,
+       "hit": 65.5,
+       "drift": 67.2
+      }
+     },
+     "periods_beating_drift": "0 of 4"
+    },
+    "21": {
+     "signals": 194,
+     "days": 2371,
+     "hit": 57.2,
+     "drift_hit": 65.5,
+     "mae": 3.702,
+     "mae_nochange": 3.782,
+     "mae_drift": 3.701,
+     "err_cut_vs_drift": -0.02,
+     "err_cut_vs_nochange": 2.14,
+     "passes": false,
+     "decision": {
+      "cost_rule": 1.182,
+      "cost_now": 1.0,
+      "cost_wait": 1.411,
+      "save_vs_now": -0.182,
+      "save_vs_wait": 0.23
+     },
+     "periods": {
+      "2019-20": {
+       "n": 48,
+       "hit": 54.2,
+       "drift": 60.4
+      },
+      "2021-22": {
+       "n": 23,
+       "hit": 47.8,
+       "drift": 60.9
+      },
+      "2023-24": {
+       "n": 48,
+       "hit": 50.0,
+       "drift": 64.6
+      },
+      "2025-26": {
+       "n": 57,
+       "hit": 70.2,
+       "drift": 70.2
+      }
+     },
+     "periods_beating_drift": "0 of 4"
+    },
+    "passes_gate": false
+   },
+   "bb_rev": {
+    "name": "Bollinger: below lower band = up, above upper = down (reversal)",
+    "5": {
+     "signals": 262,
+     "days": 2387,
+     "hit": 51.1,
+     "drift_hit": 56.9,
+     "mae": 1.898,
+     "mae_nochange": 1.916,
+     "mae_drift": 1.895,
+     "err_cut_vs_drift": -0.16,
+     "err_cut_vs_nochange": 0.96,
+     "passes": false,
+     "decision": {
+      "cost_rule": 0.28,
+      "cost_now": 0.238,
+      "cost_wait": 0.322,
+      "save_vs_now": -0.042,
+      "save_vs_wait": 0.042
+     },
+     "periods": {
+      "2017-18": {
+       "n": 32,
+       "hit": 56.2,
+       "drift": 46.9
+      },
+      "2019-20": {
+       "n": 59,
+       "hit": 50.8,
+       "drift": 57.6
+      },
+      "2021-22": {
+       "n": 60,
+       "hit": 56.7,
+       "drift": 58.3
+      },
+      "2023-24": {
+       "n": 57,
+       "hit": 43.9,
+       "drift": 59.6
+      },
+      "2025-26": {
+       "n": 54,
+       "hit": 50.0,
+       "drift": 57.4
+      }
+     },
+     "periods_beating_drift": "1 of 5"
+    },
+    "10": {
+     "signals": 261,
+     "days": 2382,
+     "hit": 48.3,
+     "drift_hit": 57.1,
+     "mae": 2.571,
+     "mae_nochange": 2.595,
+     "mae_drift": 2.567,
+     "err_cut_vs_drift": -0.15,
+     "err_cut_vs_nochange": 0.93,
+     "passes": false,
+     "decision": {
+      "cost_rule": 0.568,
+      "cost_now": 0.476,
+      "cost_wait": 0.653,
+      "save_vs_now": -0.092,
+      "save_vs_wait": 0.084
+     },
+     "periods": {
+      "2017-18": {
+       "n": 32,
+       "hit": 53.1,
+       "drift": 43.8
+      },
+      "2019-20": {
+       "n": 59,
+       "hit": 50.8,
+       "drift": 54.2
+      },
+      "2021-22": {
+       "n": 60,
+       "hit": 56.7,
+       "drift": 41.7
+      },
+      "2023-24": {
+       "n": 57,
+       "hit": 45.6,
+       "drift": 71.9
+      },
+      "2025-26": {
+       "n": 53,
+       "hit": 35.8,
+       "drift": 69.8
+      }
+     },
+     "periods_beating_drift": "2 of 5"
+    },
+    "21": {
+     "signals": 260,
+     "days": 2371,
+     "hit": 49.2,
+     "drift_hit": 63.5,
+     "mae": 3.702,
+     "mae_nochange": 3.782,
+     "mae_drift": 3.701,
+     "err_cut_vs_drift": -0.04,
+     "err_cut_vs_nochange": 2.12,
+     "passes": false,
+     "decision": {
+      "cost_rule": 1.21,
+      "cost_now": 1.0,
+      "cost_wait": 1.411,
+      "save_vs_now": -0.21,
+      "save_vs_wait": 0.201
+     },
+     "periods": {
+      "2017-18": {
+       "n": 32,
+       "hit": 56.2,
+       "drift": 65.6
+      },
+      "2019-20": {
+       "n": 59,
+       "hit": 47.5,
+       "drift": 57.6
+      },
+      "2021-22": {
+       "n": 60,
+       "hit": 58.3,
+       "drift": 60.0
+      },
+      "2023-24": {
+       "n": 57,
+       "hit": 45.6,
+       "drift": 75.4
+      },
+      "2025-26": {
+       "n": 52,
+       "hit": 40.4,
+       "drift": 59.6
+      }
+     },
+     "periods_beating_drift": "0 of 5"
+    },
+    "passes_gate": false
+   },
+   "bb_brk": {
+    "name": "Bollinger: above upper band = up (breakout reading)",
+    "5": {
+     "signals": 262,
+     "days": 2387,
+     "hit": 48.9,
+     "drift_hit": 56.9,
+     "mae": 1.898,
+     "mae_nochange": 1.916,
+     "mae_drift": 1.895,
+     "err_cut_vs_drift": -0.16,
+     "err_cut_vs_nochange": 0.96,
+     "passes": false,
+     "decision": {
+      "cost_rule": 0.28,
+      "cost_now": 0.238,
+      "cost_wait": 0.322,
+      "save_vs_now": -0.042,
+      "save_vs_wait": 0.042
+     },
+     "periods": {
+      "2017-18": {
+       "n": 32,
+       "hit": 43.8,
+       "drift": 46.9
+      },
+      "2019-20": {
+       "n": 59,
+       "hit": 49.2,
+       "drift": 57.6
+      },
+      "2021-22": {
+       "n": 60,
+       "hit": 43.3,
+       "drift": 58.3
+      },
+      "2023-24": {
+       "n": 57,
+       "hit": 56.1,
+       "drift": 59.6
+      },
+      "2025-26": {
+       "n": 54,
+       "hit": 50.0,
+       "drift": 57.4
+      }
+     },
+     "periods_beating_drift": "0 of 5"
+    },
+    "10": {
+     "signals": 261,
+     "days": 2382,
+     "hit": 51.7,
+     "drift_hit": 57.1,
+     "mae": 2.571,
+     "mae_nochange": 2.595,
+     "mae_drift": 2.567,
+     "err_cut_vs_drift": -0.15,
+     "err_cut_vs_nochange": 0.93,
+     "passes": false,
+     "decision": {
+      "cost_rule": 0.56,
+      "cost_now": 0.476,
+      "cost_wait": 0.653,
+      "save_vs_now": -0.084,
+      "save_vs_wait": 0.092
+     },
+     "periods": {
+      "2017-18": {
+       "n": 32,
+       "hit": 46.9,
+       "drift": 43.8
+      },
+      "2019-20": {
+       "n": 59,
+       "hit": 49.2,
+       "drift": 54.2
+      },
+      "2021-22": {
+       "n": 60,
+       "hit": 43.3,
+       "drift": 41.7
+      },
+      "2023-24": {
+       "n": 57,
+       "hit": 54.4,
+       "drift": 71.9
+      },
+      "2025-26": {
+       "n": 53,
+       "hit": 64.2,
+       "drift": 69.8
+      }
+     },
+     "periods_beating_drift": "2 of 5"
+    },
+    "21": {
+     "signals": 260,
+     "days": 2371,
+     "hit": 50.8,
+     "drift_hit": 63.5,
+     "mae": 3.702,
+     "mae_nochange": 3.782,
+     "mae_drift": 3.701,
+     "err_cut_vs_drift": -0.04,
+     "err_cut_vs_nochange": 2.12,
+     "passes": false,
+     "decision": {
+      "cost_rule": 1.201,
+      "cost_now": 1.0,
+      "cost_wait": 1.411,
+      "save_vs_now": -0.201,
+      "save_vs_wait": 0.21
+     },
+     "periods": {
+      "2017-18": {
+       "n": 32,
+       "hit": 43.8,
+       "drift": 65.6
+      },
+      "2019-20": {
+       "n": 59,
+       "hit": 52.5,
+       "drift": 57.6
+      },
+      "2021-22": {
+       "n": 60,
+       "hit": 41.7,
+       "drift": 60.0
+      },
+      "2023-24": {
+       "n": 57,
+       "hit": 54.4,
+       "drift": 75.4
+      },
+      "2025-26": {
+       "n": 52,
+       "hit": 59.6,
+       "drift": 59.6
+      }
+     },
+     "periods_beating_drift": "0 of 5"
+    },
+    "passes_gate": false
+   }
+  },
+  "levels": {
+   "sup": {
+    "touches": 339,
+    "decided": 298,
+    "hold_pct": 72.8,
+    "random_hold_pct": 74.8,
+    "random_n": 4565,
+    "periods": {
+     "2017-18": {
+      "real": [
+       76.5,
+       51
+      ],
+      "random": [
+       71.3,
+       661
+      ]
+     },
+     "2019-20": {
+      "real": [
+       69.5,
+       59
+      ],
+      "random": [
+       80.4,
+       945
+      ]
+     },
+     "2021-22": {
+      "real": [
+       75.0,
+       80
+      ],
+      "random": [
+       73.2,
+       1034
+      ]
+     },
+     "2023-24": {
+      "real": [
+       77.4,
+       53
+      ],
+      "random": [
+       73.4,
+       989
+      ]
+     },
+     "2025-26": {
+      "real": [
+       65.5,
+       55
+      ],
+      "random": [
+       74.7,
+       936
+      ]
+     }
+    },
+    "undecided_pct": 12.1
+   },
+   "res": {
+    "touches": 390,
+    "decided": 355,
+    "hold_pct": 63.7,
+    "random_hold_pct": 60.2,
+    "random_n": 4629,
+    "periods": {
+     "2017-18": {
+      "real": [
+       71.0,
+       62
+      ],
+      "random": [
+       67.2,
+       729
+      ]
+     },
+     "2019-20": {
+      "real": [
+       55.3,
+       85
+      ],
+      "random": [
+       56.9,
+       945
+      ]
+     },
+     "2021-22": {
+      "real": [
+       74.7,
+       83
+      ],
+      "random": [
+       67.7,
+       970
+      ]
+     },
+     "2023-24": {
+      "real": [
+       60.0,
+       70
+      ],
+      "random": [
+       56.8,
+       1040
+      ]
+     },
+     "2025-26": {
+      "real": [
+       56.4,
+       55
+      ],
+      "random": [
+       53.9,
+       945
+      ]
+     }
+    },
+    "undecided_pct": 9.0
+   }
+  },
+  "ranges": {
+   "blend": {
+    "n": 2081,
+    "coverage": 78.5,
+    "calm": 73.2,
+    "turbulent": 80.7,
+    "width_pct": 5.73,
+    "today_lo_pct": -4.25,
+    "today_hi_pct": 5.8,
+    "calibrated": true
+   },
+   "atr": {
+    "n": 2086,
+    "coverage": 78.4,
+    "calm": 72.1,
+    "turbulent": 82.6,
+    "width_pct": 5.75,
+    "today_lo_pct": -4.09,
+    "today_hi_pct": 5.49,
+    "calibrated": true
+   }
+  },
+  "now": {
+   "date": "2026-11-21",
+   "close": 105345.0,
+   "atr": 2781.0,
+   "atr_pct": 2.64,
+   "rsi": 21.4,
+   "macd": -4917.0,
+   "macd_signal": -3484.0,
+   "ma20": 118530.0,
+   "ma50": 125211.0,
+   "ma200": 134476.0,
+   "bb_lo": 105943.0,
+   "bb_hi": 131118.0,
+   "don20_hi": 126237.0,
+   "don20_lo": 104377.0,
+   "don55_hi": 137464.0,
+   "don55_lo": 104377.0,
+   "signals": {
+    "ma20": -1,
+    "ma50": -1,
+    "ma200": -1,
+    "ma50_200": -1,
+    "ma20_50": -1,
+    "cross_fresh": 0,
+    "rsi_rev": 1,
+    "rsi_mom": -1,
+    "macd_sig": -1,
+    "macd_zero": -1,
+    "don20": 0,
+    "don55": 0,
+    "bb_rev": 1,
+    "bb_brk": -1
+   },
+   "supports": [],
+   "resistances": [
+    126237.0,
+    129297.0
+   ]
+  },
+  "method": "Technical view: standard chart indicators on gold in rupees, each back-tested walk-forward before it may count.\n\nSeries: international gold in rupees before duty (Rs/10 g) = COMEX close x USD/INR (ECB) / 31.1035 x 10; daily highs and\nlows the same way from COMEX highs/lows (for ATR, Donchian and swing levels). About 10 years of daily data (2016 on).\nNo look-ahead: every reading on day t uses data up to t only; a swing high/low becomes a level only K days after it.\nEach indicator gives +1 (points up), -1 (points down) or 0 (no signal).\nScores, for horizons of 5, 10 and 21 trading days:\n  hit rate      = share of signal days where the price moved the way the signal pointed; compared with\n                  'always assume the usual direction' (the drift) on the same days\n  error         = forecast a + b*signal, re-fitted every 21 trading days on outcomes already known; compared with\n                  'no change' (0) and with the drift alone (a)\n  decision value= a buyer who must hold gold by day N: signal up -> buy now (pays carrying cost), down -> buy on day N,\n                  none -> half and half; average cost compared with buying immediately and with buying on day N\nGate (same rule as the model): an indicator may feed the main call only if, at 21 trading days (about 30 calendar days,\nthe call's window), it cuts walk-forward error by at least 1% versus the drift alone AND versus 'no change'.\nNumbers only from data/live.json; plain arithmetic, no AI.",
+  "passed": [],
+  "ibja": {
+   "date": "2026-11-20",
+   "rate": 123893,
+   "intl_date": "2026-11-20",
+   "intl": 105438,
+   "ratio": 1.175,
+   "sessions": 85,
+   "testable": false,
+   "note": "IBJA-equivalent level = world-price level x (IBJA rate / world price in rupees on the IBJA date); the ratio carries duty and the local premium"
+  }
+ }
 }

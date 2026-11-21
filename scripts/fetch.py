@@ -98,6 +98,7 @@ def comex():
     raw = get("https://stock2.finance.sina.com.cn/futures/api/jsonp.php/var%20_x=/GlobalFuturesService.getGlobalFuturesDailyKLine?symbol=GC", ref).decode()
     arr = json.loads(raw[raw.index("(") + 1: raw.rindex(")")])
     hist = [[r["date"], float(r["close"])] for r in arr if float(r["close"]) > 0]
+    hl = [[r["date"], float(r["high"]), float(r["low"])] for r in arr if float(r["close"]) > 0 and float(r["high"]) >= float(r["low"]) > 0]
     d, v = hist[-1]
     asof = d
     try:
@@ -115,7 +116,8 @@ def comex():
         pass
     return dict(label="COMEX gold futures (continuous)", value=check(v, 500, 10000, "comex"), unit="US$ per troy oz", as_of=asof,
                 source="CME COMEX gold futures via Sina Finance public quote feed (unofficial)", source_url="https://finance.sina.com.cn/futures/quotes/GC.shtml",
-                status="unofficial", note="Not an official CME feed. Front-month continuous contract; small jumps at contract rolls. Latest point can be intraday.", history=hist[-2700:])
+                status="unofficial", note="Not an official CME feed. Front-month continuous contract; small jumps at contract rolls. Latest point can be intraday.", history=hist[-2700:],
+                hl=hl[-2700:])
 
 
 def rbi():

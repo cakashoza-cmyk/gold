@@ -47,7 +47,15 @@
 <li>Every daily call and forecast is logged in data/predictions.json with its horizon, scored when due, and listed with misses in data/track_record.csv.</li>
 <li>Limits: the long back-test uses international gold in rupees, not IBJA rates, because only about four months of IBJA history are available free; duty changes are excluded. The premium rule is judged on that short IBJA history, so it stays unused until it has at least 30 signals. Rule sides are switched on and off using the whole back-test, which is in-sample. The recent good record of "buy on a dip" comes mostly from gold's 2018–2025 rise.</li></ul>
 
-<h2>7. What is not covered</h2>
+<h2>7. Technical view (chart indicators)</h2>
+<ul><li>Tested on international gold in rupees (COMEX daily close, high and low × ECB USD/INR) since 2016, because IBJA history is too short (about 85 sessions). No future data is used: every indicator on a day uses only prices up to that day; swing highs/lows count only after 5 more days have confirmed them.</li>
+<li>Indicators: price vs the 20, 50 and 200-day averages; 50-day vs 200-day (golden/death cross state) and fresh crosses; 20-day vs 50-day; RSI(14) below 30 / above 70 and above/below 50; MACD(12,26,9) vs its signal line and vs zero; 20 and 55-day Donchian breakouts; Bollinger(20, 2) reversal and breakout. Horizons 5, 10 and 21 trading days.</li>
+<li>Scoring: direction hit rate against simply assuming the usual direction on the same days; walk-forward error of a fitted forecast (refit every 21 days on outcomes known by then) against "no change" and against the drift alone; and the cost for a buyer who must buy within 21 trading days with a 12%/yr carry, following the signal vs buying immediately. Results are split by two-year periods to expose the 2018–25 bull market.</li>
+<li>Gate: an indicator feeds the call only if, at 21 trading days, it cuts error by at least 1% against both "no change" and the drift. Otherwise it is shown "for information; hasn't beaten no-change". Re-checked on every refresh; a change is logged on the Track record tab.</li>
+<li>Support/resistance: swing highs/lows of the last 120 trading days. A touch (within 0.5 ATR) "holds" if the price moves 1 ATR back away before breaking 1 ATR through within 10 days; compared with random levels at the same distances. Levels are information, not instructions.</li>
+<li>Likely 7-day range: 10th–90th percentile of past 5-trading-day moves scaled by current volatility, shown only if walk-forward coverage is 75–85% and at least 70% in both calm and turbulent periods. Applied to the latest IBJA rate; levels are converted to IBJA terms with the IBJA / world-price ratio on the IBJA date.</li></ul>
+
+<h2>8. What is not covered</h2>
 <ul><li>MCX futures, ETFs, SGB trading: not covered, no calls.</li>
 <li>Local Surat or Ahmedabad bullion rates and making charges: no free dated source. Enter your dealer's rate on the main screen to compare it with IBJA + GST.</li>
 <li>SPDR GLD holdings and RBI SGB prices: not automated (bot check, press-release text).</li></ul>

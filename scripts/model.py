@@ -19,6 +19,7 @@ import json, bisect, csv, statistics as st
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 import numpy as np
+import technical
 
 ROOT = Path(__file__).resolve().parent.parent
 LIVE, PRED, MODEL, RATES = ROOT / "data/live.json", ROOT / "data/predictions.json", ROOT / "data/model.json", ROOT / "data/rates.json"
@@ -334,11 +335,21 @@ def main():
             src = rb["dip"] if k.startswith("dip") else rb["premium"]; x = src["by_call"].get("buy now" if k.endswith("buy") else "wait") or {}
             changes.append(f"Rule {names[k]} " + ("is used for the call" if v else "is NOT used for the call") +
                            f": back-test right {x.get('hit_rate', '-')}% of {x.get('n', 0)} signals vs {x.get('opposite_hit_rate', '-')}% for the opposite action" + ("" if x.get("n", 0) >= MIN_N else f" (needs at least {MIN_N} signals)") + ".")
+    tech = technical.run(live)
+    tds, tc = technical.series(live)[:2]
+    ti = max(i for i, d in enumerate(tds) if d <= ib_last_d.isoformat())
+    tech["ibja"] = dict(date=ib_last_d.isoformat(), rate=round(float(ib_last)), intl_date=tds[ti], intl=round(float(tc[ti])),
+                        ratio=round(float(ib_last) / float(tc[ti]), 4), sessions=len(ib.v), testable=len(ib.v) >= technical.MIN_TRAIN,
+                        note="IBJA-equivalent level = world-price level x (IBJA rate / world price in rupees on the IBJA date); the ratio carries duty and the local premium")
+    old_pass = model.get("technical", {}).get("passed")
+    if old_pass is None or sorted(old_pass) != sorted(tech["passed"]):
+        changes.append("Technical indicators that passed the gate (cut 21-trading-day walk-forward error by at least 1% vs the drift and vs 'no change'): "
+                       + (", ".join(technical.NAMES[k] for k in tech["passed"]) if tech["passed"] else "none, so no chart indicator feeds the call") + ".")
     version = f"{VERSION_BASE}.{len(model.get('changelog', [])) + (1 if changes else 0)}"
     if changes:
         model.setdefault("changelog", []).insert(0, {"date": today.isoformat(), "version": version, "changes": changes})
     model.update(version=version, updated_ist=now.strftime("%Y-%m-%d %H:%M IST"), horizons=new, backtest=bt, rules=dict(params=RULES, backtest=rb),
-                 premium_history=ps[-120:], data_last_date=last.isoformat(), ibja_last_date=ib_last_d.isoformat(), formula=__doc__.strip(),
+                 premium_history=ps[-120:], technical=tech, data_last_date=last.isoformat(), ibja_last_date=ib_last_d.isoformat(), formula=__doc__.strip(),
                  band_pct=BAND, cc_spread_assumption_pct=CC_SPREAD)
 
     # ---- 3. log today's predictions (once per IBJA closing date) ----
@@ -360,7 +371,8 @@ def main():
                                               inputs=dict(ibja_rs=ib_last, features=[round(v, 3) for v in x] if x else None, weights=m["weights"]), **base))
         m30 = ledger["predictions"][-1]
         act = model["rules"]["backtest"]["active"]
-        rule_call = combine([gate(c1, "prem", act), gate(c2, "dip", act)])
+        ta_votes = technical.vote(tech)
+        rule_call = combine([gate(c1, "prem", act), gate(c2, "dip", act)] + ta_votes)
         call = rule_call
         basis = "rules"
         rf = model["rules"]["backtest"]["recent_fail"]
@@ -376,7 +388,7 @@ def main():
             downgraded = f"'buy now' softened to 'buy part': recent headline about a possible import-duty cut ({news_flag['date']}: {news_flag['title'][:120]})"
             call = "buy part"
         ledger["predictions"].append(dict(id=f"{dd}-call", news_flag=news_flag, kind="call", horizon_days=RULES["call_days"], target_date=(dd + timedelta(days=RULES["call_days"])).isoformat(),
-                                          buy_call=call, raw_call=rule_call, downgraded=downgraded, basis=basis, rule_premium=c1, rule_dip=c2, rules_active=act,
+                                          buy_call=call, raw_call=rule_call, downgraded=downgraded, basis=basis, rule_premium=c1, rule_dip=c2, rules_active=act, ta_votes=ta_votes, ta_passed=tech["passed"],
                                           inputs=dict(ibja_rs=ib_last, premium_pct=prem, gold_rupee_move_pct=round(move, 2) if move is not None else None,
                                                       rules=RULES, repo_pct=repo), **base))
     # ---- 4. live track record and lessons ----
@@ -395,6 +407,11 @@ def main():
     lessons.append(f"Rule 'premium/discount above {RULES['prem_pct']}%': {pb['n']} signals in the IBJA history held" + (f", right {pb['hit_rate']}% ({', '.join(f'{k}: {v['hit_rate']}% of {v['n']}' for k, v in pb['by_call'].items())})." if pb["n"] else "; nothing to score yet."))
     a = rb["active"]
     lessons.append("Rule sides used for today's call: " + (", ".join(names[k] for k, v in a.items() if v) or "none") + ". Not used: " + (", ".join(names[k] for k, v in a.items() if not v) or "none") + ".")
+    tp = tech["passed"]; i21 = tech["indicators"]
+    best = max(i21.values(), key=lambda v: (v["21"]["hit"] or 0) - (v["21"]["drift_hit"] or 0))
+    lessons.append(f"Chart indicators ({len(i21)} tested, {tech['first_date']} to {tech['last_date']}): " + (f"{len(tp)} passed the gate and feed the call." if tp else
+                   f"none cut 21-day error by 1% vs the drift and 'no change', so none feeds the call. Closest on direction: {best['name']}, right {best['21']['hit']}% vs {best['21']['drift_hit']}% for 'always the usual direction'.")
+                   + f" Support levels held {tech['levels']['sup']['hold_pct']}% of touches vs {tech['levels']['sup']['random_hold_pct']}% for random levels; resistance {tech['levels']['res']['hold_pct']}% vs {tech['levels']['res']['random_hold_pct']}%.")
     if len(sc) < 10:
         lessons.append(f"Live track record: learning, too few results yet ({len(sc)} scored).")
     model["lessons"] = lessons

@@ -326,11 +326,66 @@ Holding interest = rate × (repo + your spread) × days / 365</div><p class="sub
 }
 
 /* ---------- plumbing ---------- */
+/* ---------- 7. technical view (chart indicators, back-tested; information only) ---------- */
+function rTechnical() {
+  const T = M && M.technical, el = $("s-technical");
+  const t = STR[S.lang] || STR.en;
+  const langBtns = `<div class="langs" id="ta-langs" style="max-width:420px;margin:0 0 12px">${[["gu", "ગુજરાતી"], ["hi", "हिंदी"], ["en", "English"]].map(([k, n]) => `<button data-tl="${k}" class="${S.lang === k ? "on" : ""}">${n}</button>`).join("")}</div>`;
+  if (!T) { el.innerHTML = langBtns + `<div class="card grey">${esc(t.nodata)}</div>`; return; }
+  const N = T.now, I = T.indicators, G = String(T.gate_horizon), IB = T.ibja || {};
+  const nm = (k) => (t.ta_names && t.ta_names[k]) || I[k].name;
+  const dir = (s) => s > 0 ? `<span class="up">↑ ${esc(t.ta_up)}</span>` : s < 0 ? `<span class="down">↓ ${esc(t.ta_down)}</span>` : `<span class="grey">— ${esc(t.ta_flat)}</span>`;
+  const src = `<div class="src">${esc(fill(t.ta_src, { a: T.first_date, b: T.last_date }))} ${esc(fill(t.ta_ibja_note, { n: IB.sessions, r: f2(IB.ratio, 3) }))}</div>`;
+  const pass = T.passed || [];
+  const head = `<div class="card" style="margin-bottom:14px"><div class="ct">${esc(t.ta_title)}</div><p>${esc(t.ta_intro)}</p>
+    <p><b>${pass.length ? esc(fill(t.ta_some, { x: pass.map(nm).join(", ") })) : esc(t.ta_none)}</b></p>
+    <div class="src">Gate: an indicator is counted only if, at ${G} trading days, it cuts walk-forward error by at least 1% against both "no change" and the usual drift. As of ${esc(N.date)}.</div></div>`;
+  // likely range, 7 days
+  const RB = T.ranges && T.ranges.blend;
+  let range;
+  if (RB && RB.calibrated && IB.rate) {
+    const lo = IB.rate * (1 + RB.today_lo_pct / 100), hi = IB.rate * (1 + RB.today_hi_pct / 100);
+    range = `<div class="card"><div class="ct">${esc(t.ta_range_t)}</div>
+      <div style="font-size:1.5rem;font-weight:800;margin:6px 0">${audit(esc(fill(t.ta_range, { lo: rs(lo), hi: rs(hi) })), { status: "est", source: "IBJA 999 PM × back-tested 5-trading-day range", asof: IB.date,
+        formula: `IBJA ${rs(IB.rate)} × (1 ${RB.today_lo_pct}%) to × (1 + ${RB.today_hi_pct}%); range = 10th–90th percentile of past 5-trading-day moves, scaled by current volatility (half recent, exponentially weighted; half 1-year), checked walk-forward on ${RB.n} days` })}</div>
+      <div>${esc(fill(t.ta_range_base, { d: IB.date, p: rs(IB.rate), a: f2(RB.today_lo_pct), b: (RB.today_hi_pct > 0 ? "+" : "") + f2(RB.today_hi_pct) }))}</div>
+      <div class="src">${esc(fill(t.ta_range_bt, { c: RB.coverage, k: RB.calm, t: RB.turbulent }))}</div></div>`;
+  } else range = `<div class="card"><div class="ct">${esc(t.ta_range_t)}</div><p class="grey">${esc(t.ta_range_no)}</p></div>`;
+  // levels
+  const LV = T.levels, c = N.close;
+  const lrow = (v, side) => { const st = LV[side]; return `<tr><td>${esc(side === "sup" ? t.ta_sup : t.ta_res)}</td><td><b>${rs(v * IB.ratio)}</b></td><td>${rs(v)}</td><td class="${cls(v / c - 1)}">${pct((v / c - 1) * 100)}</td><td>${st.hold_pct}% <span class="grey">(${st.decided})</span></td><td>${st.random_hold_pct}%</td></tr>`; };
+  const sups = N.supports.slice(0, 2), ress = N.resistances.slice(0, 2);
+  const lvl = `<div class="card"><div class="ct">${esc(t.ta_lv_t)}</div><div style="overflow-x:auto"><table><tr>${t.ta_lv_cols.map((h) => `<th>${esc(h)}</th>`).join("")}</tr>
+    ${ress.slice().reverse().map((v) => lrow(v, "res")).join("") || `<tr><td colspan="6" class="grey">${esc(t.ta_lv_nores)}</td></tr>`}
+    <tr><td colspan="6" class="grey">${esc(N.date)}: ${rs(c * IB.ratio)} (IBJA-equiv.) · ${rs(c)} (world, before duty)</td></tr>
+    ${sups.map((v) => lrow(v, "sup")).join("") || `<tr><td colspan="6" class="grey">${esc(t.ta_lv_nosup)}</td></tr>`}</table></div>
+    <div class="src">${esc(fill(t.ta_lv_note, { s: LV.sup.hold_pct, sr: LV.sup.random_hold_pct, r: LV.res.hold_pct, rr: LV.res.random_hold_pct }))}</div></div>`;
+  // indicator table
+  const rd = {
+    ma20: `${rs(c)} vs ${rs(N.ma20)}`, ma50: `${rs(c)} vs ${rs(N.ma50)}`, ma200: `${rs(c)} vs ${rs(N.ma200)}`, ma50_200: `${rs(N.ma50)} vs ${rs(N.ma200)}`, ma20_50: `${rs(N.ma20)} vs ${rs(N.ma50)}`,
+    cross_fresh: N.signals.cross_fresh ? "50/200 ✕" : "—", rsi_rev: `RSI ${f2(N.rsi, 1)}`, rsi_mom: `RSI ${f2(N.rsi, 1)}`, macd_sig: `${f2(N.macd, 0)} vs ${f2(N.macd_signal, 0)}`, macd_zero: `MACD ${f2(N.macd, 0)}`,
+    don20: `${rs(N.don20_lo)} – ${rs(N.don20_hi)}`, don55: `${rs(N.don55_lo)} – ${rs(N.don55_hi)}`, bb_rev: `${rs(N.bb_lo)} – ${rs(N.bb_hi)}`, bb_brk: `${rs(N.bb_lo)} – ${rs(N.bb_hi)}` };
+  const keys = Object.keys(I);
+  const irows = keys.map((k) => { const a = I[k][G], b = I[k]["5"]; return `<tr><td>${esc(nm(k))}</td><td>${rd[k] || "—"}</td><td>${dir(N.signals[k])}</td>
+    <td><b>${a.hit}%</b> <span class="grey">(${a.signals})</span></td><td>${a.drift_hit}%</td><td>${b.hit}% <span class="grey">/ ${b.drift_hit}%</span></td><td>${esc(a.periods_beating_drift)}</td>
+    <td>${I[k].passes_gate ? pill("live", esc(t.ta_incall)) : `<span class="grey">${esc(t.ta_info)}</span>`}</td></tr>`; }).join("");
+  const ind = `<div class="card" style="margin-top:14px"><div class="ct">${esc(t.ta_ind_t)}</div><div style="overflow-x:auto"><table><tr>${t.ta_ind_cols.map((h) => `<th>${esc(h)}</th>`).join("")}</tr>${irows}</table></div>
+    <div class="src">Readings on world gold in rupees before duty (₹/10 g), close ${rs(c)} on ${esc(N.date)}, ATR(14) ${rs(N.atr)} (${N.atr_pct}%). "Right" = the price ${G} trading days later moved the way the indicator pointed; the comparison column is always assuming the most common direction (mostly "up") on the same days. Error vs drift at ${G} days: ${keys.map((k) => `${esc(k)} ${pct(I[k][G].err_cut_vs_drift, 2)}`).join(", ")}.</div></div>`;
+  // periods
+  const PER = Object.keys(I[keys[0]][G].periods);
+  const prow = keys.map((k) => `<tr><td>${esc(nm(k))}</td>${PER.map((p) => { const q = I[k][G].periods[p]; return q && q.n ? `<td class="${q.hit > q.drift ? "up" : "down"}">${q.hit} / ${q.drift} <span class="grey">(${q.n})</span></td>` : `<td class="grey">—</td>`; }).join("")}</tr>`).join("");
+  const per = `<div class="card" style="margin-top:14px"><div class="ct">${esc(t.ta_per_t)}</div><div style="overflow-x:auto"><table><tr><th></th>${PER.map((p) => `<th>${esc(p)}</th>`).join("")}</tr>${prow}</table></div><div class="src">${esc(t.ta_per_note)}</div></div>`;
+  // decision value
+  const crow = keys.map((k) => { const d = I[k][G].decision; return `<tr><td>${esc(nm(k))}</td><td>${f2(d.cost_rule)}%</td><td>${f2(d.cost_now)}%</td><td>${f2(d.cost_wait)}%</td><td class="${cls(d.save_vs_now, 0.05)}">${pct(d.save_vs_now, 2)}</td></tr>`; }).join("");
+  const cost = `<div class="card" style="margin-top:14px"><div class="ct">${esc(t.ta_cost_t)}</div><div style="overflow-x:auto"><table><tr>${t.ta_cost_cols.map((h) => `<th>${esc(h)}</th>`).join("")}</tr>${crow}</table></div>
+    <div class="src">Cost = average price paid plus ${T.carry_pct}%/yr carry, as % above the day-0 price. Buying immediately costs the carry; buying on day ${G} costs the price change by then. The signal rule buys on day 0 when the indicator points up, on day ${G} when it points down, half each when it has no signal. A positive saving means cheaper than buying immediately.</div></div>`;
+  el.innerHTML = langBtns + head + `<div class="grid2">${range}${lvl}</div>` + ind + per + cost + `<div class="card" style="margin-top:14px">${src}<div class="warn" style="margin-top:8px">${esc(t.ta_disc)}</div><div class="src">Method: ${esc(T.method)}</div></div>`;
+}
 function renderDetails() {
   $("meta-data").innerHTML = `Data refreshed: <b>${esc(L.generated_ist)}</b>`;
   $("meta-model").textContent = M ? `Model ${M.version} · fitted ${M.updated_ist}` : "";
   const errs = Object.keys(L.errors || {}); $("err").style.display = errs.length ? "" : "none"; $("err").textContent = errs.length ? "Some sources failed on the last refresh and show their last good value (stale): " + errs.join(", ") : "";
-  [rToday, rLanded, rRules, rTrend, rTrack, rSources].forEach((f) => { try { f(); } catch (e) { console.error(f.name, e); $("s-" + { rToday: "today", rLanded: "landed", rRules: "rules", rTrend: "trend", rTrack: "track", rSources: "sources" }[f.name]).innerHTML = '<div class="warn">Could not render: ' + esc(e.message) + "</div>"; } });
+  [rToday, rLanded, rRules, rTrend, rTrack, rSources, rTechnical].forEach((f) => { try { f(); } catch (e) { console.error(f.name, e); $("s-" + { rToday: "today", rLanded: "landed", rRules: "rules", rTrend: "trend", rTrack: "track", rSources: "sources", rTechnical: "technical" }[f.name]).innerHTML = '<div class="warn">Could not render: ' + esc(e.message) + "</div>"; } });
 }
 function renderAll() { renderSimple(); if (location.hash === "#details" || location.hash.startsWith("#tab-")) renderDetails(); }
 function route() {
@@ -343,6 +398,7 @@ function showTab(s) { document.querySelectorAll(".tab").forEach((b) => b.classLi
 document.addEventListener("click", (ev) => {
   const t = ev.target.closest(".tab"); if (t) { showTab(t.dataset.s); history.replaceState(null, "", "#tab-" + t.dataset.s); }
   const l = ev.target.closest("#langs button"); if (l) { S.lang = l.dataset.l; save(); renderSimple(); }
+  const tl = ev.target.closest("#ta-langs button"); if (tl) { S.lang = tl.dataset.tl; save(); renderSimple(); rTechnical(); }
 });
 document.addEventListener("change", (ev) => { const k = ev.target.dataset && ev.target.dataset.k; if (k) { S[k] = ev.target.value === "" ? DEF[k] : Number(ev.target.value); save(); setTimeout(renderAll, 0); } });
 $("back-link").onclick = (e) => { e.preventDefault(); history.pushState(null, "", location.pathname); route(); };
