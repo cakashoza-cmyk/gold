@@ -183,6 +183,100 @@
 "made_on": "2026-11-20",
 "logged_ist": "2026-11-20 23:04 IST",
 "model_version": "v1.1"
+},
+{
+"id": "2026-11-23-7d",
+"kind": "model",
+"horizon_days": 7,
+"target_date": "2026-11-30",
+"pred_pct": 0.0,
+"direction": "flat",
+"pred_ibja_rs": 124945.0,
+"error_band_pct": 2.92,
+"model_has_edge": false,
+"inputs": {
+"ibja_rs": 124945.0,
+"features": [
+-7.341,
+-0.03,
+0.0,
+-1.331
+],
+"weights": {
+"momentum": 0.0,
+"real_yield": 0.0,
+"dollar": 0.0,
+"rupee": 0.0
+}
+},
+"made_on": "2026-11-23",
+"logged_ist": "2026-11-23 17:20 IST",
+"model_version": "v1.2"
+},
+{
+"id": "2026-11-23-30d",
+"kind": "model",
+"horizon_days": 30,
+"target_date": "2026-12-23",
+"pred_pct": 0.0,
+"direction": "flat",
+"pred_ibja_rs": 124945.0,
+"error_band_pct": 6.04,
+"model_has_edge": false,
+"inputs": {
+"ibja_rs": 124945.0,
+"features": [
+-11.77,
+0.24,
+1.069,
+-2.38
+],
+"weights": {
+"momentum": 0.0,
+"real_yield": 0.0,
+"dollar": 0.0,
+"rupee": 0.0
+}
+},
+"made_on": "2026-11-23",
+"logged_ist": "2026-11-23 17:20 IST",
+"model_version": "v1.2"
+},
+{
+"id": "2026-11-23-call",
+"news_flag": null,
+"kind": "call",
+"horizon_days": 30,
+"target_date": "2026-12-23",
+"buy_call": "buy part",
+"raw_call": "buy now",
+"downgraded": "'buy now' softened to 'buy part': the dip rule has been wrong more often than right in the last 180 days of the back-test",
+"basis": "rules",
+"rule_premium": null,
+"rule_dip": "buy now",
+"rules_active": {
+"dip_buy": true,
+"dip_wait": false,
+"prem_buy": false,
+"prem_wait": false
+},
+"ta_votes": [],
+"ta_passed": [],
+"inputs": {
+"ibja_rs": 124945.0,
+"premium_pct": 1.82,
+"gold_rupee_move_pct": -7.34,
+"rules": {
+"prem_pct": 2.0,
+"dip_pct": 3.0,
+"dip_days": 7,
+"call_days": 30
+},
+"repo_pct": 5.5
+},
+"made_on": "2026-11-23",
+"logged_ist": "2026-11-23 17:20 IST",
+"model_version": "v1.2"
 }
 ]
 }
