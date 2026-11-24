@@ -21,7 +21,7 @@
   }
  ],
  "version": "v1.2",
- "updated_ist": "2026-11-24 07:30 IST",
+ "updated_ist": "2026-11-24 18:48 IST",
  "horizons": {
   "7": {
    "gate": {
@@ -569,7 +569,7 @@
   "Rule 'buy on a 3.0% dip, wait after a 3.0% jump' (30-day outcome, since 2017-11-09): right 52.4% of 399 signals (wait: 40.9% of 254, opposite action 59.1%, buy now: 72.4% of 145, opposite action 27.6%).",
   "Rule 'premium/discount above 2.0%': 19 signals in the IBJA history held, right 36.8% (buy now: 36.8% of 19).",
   "Rule sides used for today's call: 'buy after a dip'. Not used: 'wait after a jump', 'buy when India is at a discount', 'wait when India is at a premium'.",
-  "Chart indicators (14 tested, 2016-11-24 to 2026-11-24): none cut 21-day error by 1% vs the drift and 'no change', so none feeds the call. Closest on direction: 50-day average above/below 200-day (golden/death cross state), right 56.4% vs 59.9% for 'always the usual direction'. Support levels held 72.8% of touches vs 75.2% for random levels; resistance 63.8% vs 59.1%.",
+  "Chart indicators (14 tested, 2016-11-24 to 2026-11-24): none cut 21-day error by 1% vs the drift and 'no change', so none feeds the call. Closest on direction: 50-day average above/below 200-day (golden/death cross state), right 56.4% vs 59.9% for 'always the usual direction'. Support levels held 72.8% of touches vs 75.1% for random levels; resistance 63.8% vs 59.1%.",
   "Live track record: learning, too few results yet (0 scored)."
  ],
  "technical": {
@@ -593,7 +593,7 @@
      "days": 2385,
      "hit": 48.9,
      "drift_hit": 55.4,
-     "mae": 1.89,
+     "mae": 1.891,
      "mae_nochange": 1.911,
      "mae_drift": 1.89,
      "err_cut_vs_drift": -0.02,
@@ -602,8 +602,8 @@
      "decision": {
       "cost_rule": 0.274,
       "cost_now": 0.238,
-      "cost_wait": 0.319,
-      "save_vs_now": -0.036,
+      "cost_wait": 0.318,
+      "save_vs_now": -0.035,
       "save_vs_wait": 0.045
      },
      "periods": {
@@ -640,7 +640,7 @@
      "days": 2380,
      "hit": 50.5,
      "drift_hit": 56.2,
-     "mae": 2.573,
+     "mae": 2.574,
      "mae_nochange": 2.598,
      "mae_drift": 2.571,
      "err_cut_vs_drift": -0.1,
@@ -649,8 +649,8 @@
      "decision": {
       "cost_rule": 0.537,
       "cost_now": 0.476,
-      "cost_wait": 0.648,
-      "save_vs_now": -0.061,
+      "cost_wait": 0.647,
+      "save_vs_now": -0.06,
       "save_vs_wait": 0.111
      },
      "periods": {
@@ -688,7 +688,7 @@
      "hit": 52.3,
      "drift_hit": 59.9,
      "mae": 3.705,
-     "mae_nochange": 3.787,
+     "mae_nochange": 3.788,
      "mae_drift": 3.705,
      "err_cut_vs_drift": 0.01,
      "err_cut_vs_nochange": 2.18,
@@ -696,7 +696,7 @@
      "decision": {
       "cost_rule": 1.07,
       "cost_now": 1.0,
-      "cost_wait": 1.408,
+      "cost_wait": 1.407,
       "save_vs_now": -0.07,
       "save_vs_wait": 0.338
      },
@@ -738,17 +738,17 @@
      "days": 2385,
      "hit": 50.9,
      "drift_hit": 55.4,
-     "mae": 1.89,
+     "mae": 1.891,
      "mae_nochange": 1.911,
      "mae_drift": 1.89,
      "err_cut_vs_drift": -0.01,
      "err_cut_vs_nochange": 1.07,
      "passes": false,
      "decision": {
-      "cost_rule": 0.237,
+      "cost_rule": 0.236,
       "cost_now": 0.238,
-      "cost_wait": 0.319,
-      "save_vs_now": 0.001,
+      "cost_wait": 0.318,
+      "save_vs_now": 0.002,
       "save_vs_wait": 0.082
      },
      "periods": {
@@ -785,16 +785,16 @@
      "days": 2380,
      "hit": 53.6,
      "drift_hit": 56.2,
-     "mae": 2.571,
+     "mae": 2.572,
      "mae_nochange": 2.598,
      "mae_drift": 2.571,
      "err_cut_vs_drift": -0.02,
-     "err_cut_vs_nochange": 1.03,
+     "err_cut_vs_nochange": 1.02,
      "passes": false,
      "decision": {
       "cost_rule": 0.461,
       "cost_now": 0.476,
-      "cost_wait": 0.648,
+      "cost_wait": 0.647,
       "save_vs_now": 0.015,
       "save_vs_wait": 0.186
      },
@@ -832,8 +832,8 @@
      "days": 2369,
      "hit": 54.6,
      "drift_hit": 59.9,
-     "mae": 3.706,
-     "mae_nochange": 3.787,
+     "mae": 3.707,
+     "mae_nochange": 3.788,
      "mae_drift": 3.705,
      "err_cut_vs_drift": -0.04,
      "err_cut_vs_nochange": 2.13,
@@ -841,7 +841,7 @@
      "decision": {
       "cost_rule": 1.007,
       "cost_now": 1.0,
-      "cost_wait": 1.408,
+      "cost_wait": 1.407,
       "save_vs_now": -0.007,
       "save_vs_wait": 0.4
      },
@@ -883,7 +883,7 @@
      "days": 2385,
      "hit": 52.3,
      "drift_hit": 55.4,
-     "mae": 1.898,
+     "mae": 1.899,
      "mae_nochange": 1.911,
      "mae_drift": 1.89,
      "err_cut_vs_drift": -0.43,
@@ -892,7 +892,7 @@
      "decision": {
       "cost_rule": 0.247,
       "cost_now": 0.238,
-      "cost_wait": 0.319,
+      "cost_wait": 0.318,
       "save_vs_now": -0.009,
       "save_vs_wait": 0.072
      },
@@ -939,8 +939,8 @@
      "decision": {
       "cost_rule": 0.502,
       "cost_now": 0.476,
-      "cost_wait": 0.648,
-      "save_vs_now": -0.026,
+      "cost_wait": 0.647,
+      "save_vs_now": -0.025,
       "save_vs_wait": 0.146
      },
      "periods": {
@@ -977,17 +977,17 @@
      "days": 2369,
      "hit": 53.8,
      "drift_hit": 59.9,
-     "mae": 3.72,
-     "mae_nochange": 3.787,
+     "mae": 3.721,
+     "mae_nochange": 3.788,
      "mae_drift": 3.705,
      "err_cut_vs_drift": -0.42,
      "err_cut_vs_nochange": 1.76,
      "passes": false,
      "decision": {
-      "cost_rule": 1.081,
+      "cost_rule": 1.08,
       "cost_now": 1.0,
-      "cost_wait": 1.408,
-      "save_vs_now": -0.081,
+      "cost_wait": 1.407,
+      "save_vs_now": -0.08,
       "save_vs_wait": 0.327
      },
      "periods": {
@@ -1028,7 +1028,7 @@
      "days": 2385,
      "hit": 53.1,
      "drift_hit": 55.4,
-     "mae": 1.9,
+     "mae": 1.901,
      "mae_nochange": 1.911,
      "mae_drift": 1.89,
      "err_cut_vs_drift": -0.54,
@@ -1037,7 +1037,7 @@
      "decision": {
       "cost_rule": 0.224,
       "cost_now": 0.238,
-      "cost_wait": 0.319,
+      "cost_wait": 0.318,
       "save_vs_now": 0.014,
       "save_vs_wait": 0.095
      },
@@ -1075,7 +1075,7 @@
      "days": 2380,
      "hit": 53.8,
      "drift_hit": 56.2,
-     "mae": 2.595,
+     "mae": 2.596,
      "mae_nochange": 2.598,
      "mae_drift": 2.571,
      "err_cut_vs_drift": -0.96,
@@ -1084,7 +1084,7 @@
      "decision": {
       "cost_rule": 0.458,
       "cost_now": 0.476,
-      "cost_wait": 0.648,
+      "cost_wait": 0.647,
       "save_vs_now": 0.018,
       "save_vs_wait": 0.189
      },
@@ -1123,7 +1123,7 @@
      "hit": 56.4,
      "drift_hit": 59.9,
      "mae": 3.744,
-     "mae_nochange": 3.787,
+     "mae_nochange": 3.788,
      "mae_drift": 3.705,
      "err_cut_vs_drift": -1.05,
      "err_cut_vs_nochange": 1.14,
@@ -1131,7 +1131,7 @@
      "decision": {
       "cost_rule": 0.965,
       "cost_now": 1.0,
-      "cost_wait": 1.408,
+      "cost_wait": 1.407,
       "save_vs_now": 0.035,
       "save_vs_wait": 0.443
      },
@@ -1173,7 +1173,7 @@
      "days": 2385,
      "hit": 52.4,
      "drift_hit": 55.4,
-     "mae": 1.89,
+     "mae": 1.891,
      "mae_nochange": 1.911,
      "mae_drift": 1.89,
      "err_cut_vs_drift": -0.02,
@@ -1182,7 +1182,7 @@
      "decision": {
       "cost_rule": 0.198,
       "cost_now": 0.238,
-      "cost_wait": 0.319,
+      "cost_wait": 0.318,
       "save_vs_now": 0.04,
       "save_vs_wait": 0.121
      },
@@ -1220,7 +1220,7 @@
      "days": 2380,
      "hit": 55.4,
      "drift_hit": 56.2,
-     "mae": 2.561,
+     "mae": 2.562,
      "mae_nochange": 2.598,
      "mae_drift": 2.571,
      "err_cut_vs_drift": 0.36,
@@ -1229,8 +1229,8 @@
      "decision": {
       "cost_rule": 0.406,
       "cost_now": 0.476,
-      "cost_wait": 0.648,
-      "save_vs_now": 0.07,
+      "cost_wait": 0.647,
+      "save_vs_now": 0.071,
       "save_vs_wait": 0.242
      },
      "periods": {
@@ -1268,7 +1268,7 @@
      "hit": 54.3,
      "drift_hit": 59.9,
      "mae": 3.708,
-     "mae_nochange": 3.787,
+     "mae_nochange": 3.788,
      "mae_drift": 3.705,
      "err_cut_vs_drift": -0.08,
      "err_cut_vs_nochange": 2.09,
@@ -1276,7 +1276,7 @@
      "decision": {
       "cost_rule": 0.961,
       "cost_now": 1.0,
-      "cost_wait": 1.408,
+      "cost_wait": 1.407,
       "save_vs_now": 0.039,
       "save_vs_wait": 0.447
      },
@@ -1318,7 +1318,7 @@
      "days": 2385,
      "hit": 43.5,
      "drift_hit": 60.9,
-     "mae": 1.891,
+     "mae": 1.892,
      "mae_nochange": 1.911,
      "mae_drift": 1.89,
      "err_cut_vs_drift": -0.08,
@@ -1327,7 +1327,7 @@
      "decision": {
       "cost_rule": 0.282,
       "cost_now": 0.238,
-      "cost_wait": 0.319,
+      "cost_wait": 0.318,
       "save_vs_now": -0.044,
       "save_vs_wait": 0.036
      },
@@ -1355,7 +1355,7 @@
      "days": 2380,
      "hit": 41.3,
      "drift_hit": 58.7,
-     "mae": 2.581,
+     "mae": 2.582,
      "mae_nochange": 2.598,
      "mae_drift": 2.571,
      "err_cut_vs_drift": -0.41,
@@ -1364,7 +1364,7 @@
      "decision": {
       "cost_rule": 0.578,
       "cost_now": 0.476,
-      "cost_wait": 0.648,
+      "cost_wait": 0.647,
       "save_vs_now": -0.102,
       "save_vs_wait": 0.07
      },
@@ -1392,8 +1392,8 @@
      "days": 2369,
      "hit": 48.6,
      "drift_hit": 61.6,
-     "mae": 3.724,
-     "mae_nochange": 3.787,
+     "mae": 3.725,
+     "mae_nochange": 3.788,
      "mae_drift": 3.705,
      "err_cut_vs_drift": -0.53,
      "err_cut_vs_nochange": 1.66,
@@ -1401,7 +1401,7 @@
      "decision": {
       "cost_rule": 1.219,
       "cost_now": 1.0,
-      "cost_wait": 1.408,
+      "cost_wait": 1.407,
       "save_vs_now": -0.219,
       "save_vs_wait": 0.188
      },
@@ -1440,10 +1440,10 @@
      "err_cut_vs_nochange": 0.72,
      "passes": false,
      "decision": {
-      "cost_rule": 0.274,
+      "cost_rule": 0.273,
       "cost_now": 0.238,
-      "cost_wait": 0.319,
-      "save_vs_now": -0.036,
+      "cost_wait": 0.318,
+      "save_vs_now": -0.035,
       "save_vs_wait": 0.045
      },
      "periods": {
@@ -1475,7 +1475,7 @@
      "days": 2380,
      "hit": 50.9,
      "drift_hit": 55.9,
-     "mae": 2.577,
+     "mae": 2.578,
      "mae_nochange": 2.598,
      "mae_drift": 2.571,
      "err_cut_vs_drift": -0.25,
@@ -1484,8 +1484,8 @@
      "decision": {
       "cost_rule": 0.547,
       "cost_now": 0.476,
-      "cost_wait": 0.648,
-      "save_vs_now": -0.071,
+      "cost_wait": 0.647,
+      "save_vs_now": -0.07,
       "save_vs_wait": 0.101
      },
      "periods": {
@@ -1517,8 +1517,8 @@
      "days": 2369,
      "hit": 43.4,
      "drift_hit": 63.8,
-     "mae": 3.721,
-     "mae_nochange": 3.787,
+     "mae": 3.722,
+     "mae_nochange": 3.788,
      "mae_drift": 3.705,
      "err_cut_vs_drift": -0.44,
      "err_cut_vs_nochange": 1.75,
@@ -1526,7 +1526,7 @@
      "decision": {
       "cost_rule": 1.222,
       "cost_now": 1.0,
-      "cost_wait": 1.408,
+      "cost_wait": 1.407,
       "save_vs_now": -0.222,
       "save_vs_wait": 0.186
      },
@@ -1563,17 +1563,17 @@
      "days": 2385,
      "hit": 49.1,
      "drift_hit": 55.4,
-     "mae": 1.89,
+     "mae": 1.891,
      "mae_nochange": 1.911,
      "mae_drift": 1.89,
      "err_cut_vs_drift": -0.02,
      "err_cut_vs_nochange": 1.05,
      "passes": false,
      "decision": {
-      "cost_rule": 0.263,
+      "cost_rule": 0.262,
       "cost_now": 0.238,
-      "cost_wait": 0.319,
-      "save_vs_now": -0.025,
+      "cost_wait": 0.318,
+      "save_vs_now": -0.024,
       "save_vs_wait": 0.056
      },
      "periods": {
@@ -1619,8 +1619,8 @@
      "decision": {
       "cost_rule": 0.495,
       "cost_now": 0.476,
-      "cost_wait": 0.648,
-      "save_vs_now": -0.019,
+      "cost_wait": 0.647,
+      "save_vs_now": -0.018,
       "save_vs_wait": 0.153
      },
      "periods": {
@@ -1658,16 +1658,16 @@
      "hit": 53.0,
      "drift_hit": 59.9,
      "mae": 3.706,
-     "mae_nochange": 3.787,
+     "mae_nochange": 3.788,
      "mae_drift": 3.705,
      "err_cut_vs_drift": -0.02,
      "err_cut_vs_nochange": 2.16,
      "passes": false,
      "decision": {
-      "cost_rule": 1.05,
+      "cost_rule": 1.049,
       "cost_now": 1.0,
-      "cost_wait": 1.408,
-      "save_vs_now": -0.05,
+      "cost_wait": 1.407,
+      "save_vs_now": -0.049,
       "save_vs_wait": 0.358
      },
      "periods": {
@@ -1708,7 +1708,7 @@
      "days": 2385,
      "hit": 49.2,
      "drift_hit": 55.4,
-     "mae": 1.892,
+     "mae": 1.893,
      "mae_nochange": 1.911,
      "mae_drift": 1.89,
      "err_cut_vs_drift": -0.11,
@@ -1717,7 +1717,7 @@
      "decision": {
       "cost_rule": 0.271,
       "cost_now": 0.238,
-      "cost_wait": 0.319,
+      "cost_wait": 0.318,
       "save_vs_now": -0.033,
       "save_vs_wait": 0.048
      },
@@ -1755,7 +1755,7 @@
      "days": 2380,
      "hit": 51.1,
      "drift_hit": 56.2,
-     "mae": 2.574,
+     "mae": 2.575,
      "mae_nochange": 2.598,
      "mae_drift": 2.571,
      "err_cut_vs_drift": -0.15,
@@ -1764,7 +1764,7 @@
      "decision": {
       "cost_rule": 0.554,
       "cost_now": 0.476,
-      "cost_wait": 0.648,
+      "cost_wait": 0.647,
       "save_vs_now": -0.077,
       "save_vs_wait": 0.094
      },
@@ -1802,8 +1802,8 @@
      "days": 2369,
      "hit": 51.8,
      "drift_hit": 59.9,
-     "mae": 3.709,
-     "mae_nochange": 3.787,
+     "mae": 3.71,
+     "mae_nochange": 3.788,
      "mae_drift": 3.705,
      "err_cut_vs_drift": -0.12,
      "err_cut_vs_nochange": 2.06,
@@ -1811,7 +1811,7 @@
      "decision": {
       "cost_rule": 1.135,
       "cost_now": 1.0,
-      "cost_wait": 1.408,
+      "cost_wait": 1.407,
       "save_vs_now": -0.135,
       "save_vs_wait": 0.272
      },
@@ -1860,10 +1860,10 @@
      "err_cut_vs_nochange": 1.0,
      "passes": false,
      "decision": {
-      "cost_rule": 0.237,
+      "cost_rule": 0.236,
       "cost_now": 0.238,
-      "cost_wait": 0.319,
-      "save_vs_now": 0.001,
+      "cost_wait": 0.318,
+      "save_vs_now": 0.002,
       "save_vs_wait": 0.082
      },
      "periods": {
@@ -1909,8 +1909,8 @@
      "decision": {
       "cost_rule": 0.458,
       "cost_now": 0.476,
-      "cost_wait": 0.648,
-      "save_vs_now": 0.018,
+      "cost_wait": 0.647,
+      "save_vs_now": 0.019,
       "save_vs_wait": 0.19
      },
      "periods": {
@@ -1947,17 +1947,17 @@
      "days": 2369,
      "hit": 55.3,
      "drift_hit": 59.9,
-     "mae": 3.703,
-     "mae_nochange": 3.787,
+     "mae": 3.704,
+     "mae_nochange": 3.788,
      "mae_drift": 3.705,
      "err_cut_vs_drift": 0.04,
      "err_cut_vs_nochange": 2.21,
      "passes": false,
      "decision": {
-      "cost_rule": 0.954,
+      "cost_rule": 0.953,
       "cost_now": 1.0,
-      "cost_wait": 1.408,
-      "save_vs_now": 0.046,
+      "cost_wait": 1.407,
+      "save_vs_now": 0.047,
       "save_vs_wait": 0.454
      },
      "periods": {
@@ -2007,7 +2007,7 @@
      "decision": {
       "cost_rule": 0.287,
       "cost_now": 0.238,
-      "cost_wait": 0.319,
+      "cost_wait": 0.318,
       "save_vs_now": -0.049,
       "save_vs_wait": 0.031
      },
@@ -2054,9 +2054,9 @@
      "decision": {
       "cost_rule": 0.572,
       "cost_now": 0.476,
-      "cost_wait": 0.648,
+      "cost_wait": 0.647,
       "save_vs_now": -0.096,
-      "save_vs_wait": 0.076
+      "save_vs_wait": 0.075
      },
      "periods": {
       "2017-18": {
@@ -2092,8 +2092,8 @@
      "days": 2369,
      "hit": 52.8,
      "drift_hit": 63.7,
-     "mae": 3.704,
-     "mae_nochange": 3.787,
+     "mae": 3.705,
+     "mae_nochange": 3.788,
      "mae_drift": 3.705,
      "err_cut_vs_drift": 0.01,
      "err_cut_vs_nochange": 2.19,
@@ -2101,7 +2101,7 @@
      "decision": {
       "cost_rule": 1.197,
       "cost_now": 1.0,
-      "cost_wait": 1.408,
+      "cost_wait": 1.407,
       "save_vs_now": -0.197,
       "save_vs_wait": 0.211
      },
@@ -2150,10 +2150,10 @@
      "err_cut_vs_nochange": 0.87,
      "passes": false,
      "decision": {
-      "cost_rule": 0.276,
+      "cost_rule": 0.275,
       "cost_now": 0.238,
-      "cost_wait": 0.319,
-      "save_vs_now": -0.038,
+      "cost_wait": 0.318,
+      "save_vs_now": -0.037,
       "save_vs_wait": 0.043
      },
      "periods": {
@@ -2192,9 +2192,9 @@
      "err_cut_vs_nochange": 0.91,
      "passes": false,
      "decision": {
-      "cost_rule": 0.565,
+      "cost_rule": 0.564,
       "cost_now": 0.476,
-      "cost_wait": 0.648,
+      "cost_wait": 0.647,
       "save_vs_now": -0.088,
       "save_vs_wait": 0.083
      },
@@ -2227,17 +2227,17 @@
      "days": 2369,
      "hit": 57.0,
      "drift_hit": 65.3,
-     "mae": 3.706,
-     "mae_nochange": 3.787,
+     "mae": 3.707,
+     "mae_nochange": 3.788,
      "mae_drift": 3.705,
      "err_cut_vs_drift": -0.04,
      "err_cut_vs_nochange": 2.14,
      "passes": false,
      "decision": {
-      "cost_rule": 1.181,
+      "cost_rule": 1.18,
       "cost_now": 1.0,
-      "cost_wait": 1.408,
-      "save_vs_now": -0.181,
+      "cost_wait": 1.407,
+      "save_vs_now": -0.18,
       "save_vs_wait": 0.227
      },
      "periods": {
@@ -2273,7 +2273,7 @@
      "days": 2385,
      "hit": 51.1,
      "drift_hit": 56.9,
-     "mae": 1.892,
+     "mae": 1.893,
      "mae_nochange": 1.911,
      "mae_drift": 1.89,
      "err_cut_vs_drift": -0.12,
@@ -2282,7 +2282,7 @@
      "decision": {
       "cost_rule": 0.278,
       "cost_now": 0.238,
-      "cost_wait": 0.319,
+      "cost_wait": 0.318,
       "save_vs_now": -0.04,
       "save_vs_wait": 0.04
      },
@@ -2329,7 +2329,7 @@
      "decision": {
       "cost_rule": 0.566,
       "cost_now": 0.476,
-      "cost_wait": 0.648,
+      "cost_wait": 0.647,
       "save_vs_now": -0.09,
       "save_vs_wait": 0.082
      },
@@ -2367,8 +2367,8 @@
      "days": 2369,
      "hit": 49.2,
      "drift_hit": 63.5,
-     "mae": 3.706,
-     "mae_nochange": 3.787,
+     "mae": 3.707,
+     "mae_nochange": 3.788,
      "mae_drift": 3.705,
      "err_cut_vs_drift": -0.04,
      "err_cut_vs_nochange": 2.13,
@@ -2376,7 +2376,7 @@
      "decision": {
       "cost_rule": 1.208,
       "cost_now": 1.0,
-      "cost_wait": 1.408,
+      "cost_wait": 1.407,
       "save_vs_now": -0.208,
       "save_vs_wait": 0.2
      },
@@ -2418,7 +2418,7 @@
      "days": 2385,
      "hit": 48.9,
      "drift_hit": 56.9,
-     "mae": 1.892,
+     "mae": 1.893,
      "mae_nochange": 1.911,
      "mae_drift": 1.89,
      "err_cut_vs_drift": -0.12,
@@ -2427,7 +2427,7 @@
      "decision": {
       "cost_rule": 0.278,
       "cost_now": 0.238,
-      "cost_wait": 0.319,
+      "cost_wait": 0.318,
       "save_vs_now": -0.04,
       "save_vs_wait": 0.04
      },
@@ -2474,7 +2474,7 @@
      "decision": {
       "cost_rule": 0.558,
       "cost_now": 0.476,
-      "cost_wait": 0.648,
+      "cost_wait": 0.647,
       "save_vs_now": -0.082,
       "save_vs_wait": 0.09
      },
@@ -2512,8 +2512,8 @@
      "days": 2369,
      "hit": 50.8,
      "drift_hit": 63.5,
-     "mae": 3.706,
-     "mae_nochange": 3.787,
+     "mae": 3.707,
+     "mae_nochange": 3.788,
      "mae_drift": 3.705,
      "err_cut_vs_drift": -0.04,
      "err_cut_vs_nochange": 2.13,
@@ -2521,7 +2521,7 @@
      "decision": {
       "cost_rule": 1.2,
       "cost_now": 1.0,
-      "cost_wait": 1.408,
+      "cost_wait": 1.407,
       "save_vs_now": -0.2,
       "save_vs_wait": 0.208
      },
@@ -2562,8 +2562,8 @@
     "touches": 339,
     "decided": 298,
     "hold_pct": 72.8,
-    "random_hold_pct": 75.2,
-    "random_n": 4568,
+    "random_hold_pct": 75.1,
+    "random_n": 4565,
     "periods": {
      "2017-18": {
       "real": [
@@ -2612,7 +2612,7 @@
       ],
       "random": [
        74.1,
-       909
+       906
       ]
      }
     },
@@ -2686,8 +2686,8 @@
     "calm": 73.2,
     "turbulent": 80.5,
     "width_pct": 5.74,
-    "today_lo_pct": -4.46,
-    "today_hi_pct": 6.09,
+    "today_lo_pct": -4.45,
+    "today_hi_pct": 6.08,
     "calibrated": true
    },
    "atr": {
@@ -2696,24 +2696,24 @@
     "calm": 72.7,
     "turbulent": 82.6,
     "width_pct": 5.77,
-    "today_lo_pct": -4.34,
-    "today_hi_pct": 5.84,
+    "today_lo_pct": -4.41,
+    "today_hi_pct": 5.94,
     "calibrated": true
    }
   },
   "now": {
    "date": "2026-11-24",
-   "close": 110146.0,
-   "atr": 3081.0,
-   "atr_pct": 2.8,
-   "rsi": 33.8,
-   "macd": -4591.0,
-   "macd_signal": -3652.0,
-   "ma20": 118018.0,
-   "ma50": 124824.0,
-   "ma200": 134316.0,
-   "bb_lo": 105975.0,
-   "bb_hi": 130060.0,
+   "close": 109222.0,
+   "atr": 3107.0,
+   "atr_pct": 2.84,
+   "rsi": 31.9,
+   "macd": -4665.0,
+   "macd_signal": -3667.0,
+   "ma20": 117972.0,
+   "ma50": 124805.0,
+   "ma200": 134311.0,
+   "bb_lo": 105796.0,
+   "bb_hi": 130147.0,
    "don20_hi": 126237.0,
    "don20_lo": 104377.0,
    "don55_hi": 137464.0,
