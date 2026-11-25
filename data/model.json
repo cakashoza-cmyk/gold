@@ -21,7 +21,7 @@
   }
  ],
  "version": "v1.2",
- "updated_ist": "2026-11-25 05:15 IST",
+ "updated_ist": "2026-11-25 17:39 IST",
  "horizons": {
   "7": {
    "gate": {
@@ -58,10 +58,10 @@
      0
     ],
     "why": {
-     "momentum": "weight set to 0: walk-forward error 3.993% with it vs 3.958% without it, so it did not cut error by at least 1%",
-     "real_yield": "weight set to 0: walk-forward error 3.958% with it vs 3.955% without it, so it did not cut error by at least 1%",
-     "dollar": "weight set to 0: walk-forward error 3.955% with it vs 3.931% without it, so it did not cut error by at least 1%",
-     "rupee": "weight set to 0: walk-forward error 3.931% with it vs 3.958% without it, so it did not cut error by at least 1%"
+     "momentum": "weight set to 0: walk-forward error 3.996% with it vs 3.961% without it, so it did not cut error by at least 1%",
+     "real_yield": "weight set to 0: walk-forward error 3.961% with it vs 3.959% without it, so it did not cut error by at least 1%",
+     "dollar": "weight set to 0: walk-forward error 3.959% with it vs 3.935% without it, so it did not cut error by at least 1%",
+     "rupee": "weight set to 0: walk-forward error 3.935% with it vs 3.961% without it, so it did not cut error by at least 1%"
     }
    },
    "weights": {
@@ -96,12 +96,12 @@
    "end": "2026-10-26",
    "hit_rate": 33.2,
    "naive_hit_rate": 33.2,
-   "mae_pct": 3.958,
-   "naive_mae_pct": 3.958,
+   "mae_pct": 3.961,
+   "naive_mae_pct": 3.961,
    "err_band_pct": 6.31,
    "up_share": 61.2,
    "ungated_hit_rate": 33.4,
-   "ungated_mae_pct": 3.993
+   "ungated_mae_pct": 3.996
   }
  },
  "rules": {
@@ -175,12 +175,12 @@
     "data": "IBJA 999 closing rate (only the ~4 months of IBJA history the app holds; too few for a firm verdict)"
    },
    "combined": {
-    "n": 67,
-    "hit_rate": 11.9,
+    "n": 68,
+    "hit_rate": 11.8,
     "by_call": {
      "buy part": {
-      "n": 57,
-      "hit_rate": 14.0,
+      "n": 58,
+      "hit_rate": 13.8,
       "opposite_hit_rate": 0.0
      },
      "buy now": {
@@ -189,9 +189,9 @@
       "opposite_hit_rate": 100.0
      }
     },
-    "base_up": 25.4,
-    "base_down": 74.6,
-    "base_flat": 13.4,
+    "base_up": 25.0,
+    "base_down": 75.0,
+    "base_flat": 13.2,
     "start": "2026-07-20",
     "data": "IBJA 999 closing rate (only the ~4 months of IBJA history the app holds; too few for a firm verdict)"
    },
@@ -551,10 +551,14 @@
   [
    "2026-11-23",
    0.97
+  ],
+  [
+   "2026-11-25",
+   -0.87
   ]
  ],
  "data_last_date": "2026-11-25",
- "ibja_last_date": "2026-11-23",
+ "ibja_last_date": "2026-11-25",
  "formula": "Gold desk prediction ledger, scoring and learning. Numbers only from data/live.json and data/rates.json.\nNo AI is used anywhere here; every number is plain arithmetic or least squares, written to JSON.\n\nPrices\n  International gold in rupees (Rs/10 g, before duty) = COMEX gold (US$/oz) x USD/INR / 31.1035 x 10\n  Landed cost (Rs/10 g, before GST)                   = international x (1 + customs duty%)          [market-value basis]\n  Indian premium (+) / discount (-) %                  = IBJA 999 closing / landed cost - 1\n     (COMEX reference = average of previous and same-day COMEX close, approximating the price at IBJA's afternoon rate)\nForecast of the % change of gold in rupees over h days (h = 7, 30):\n  d% = w_mom * (gold-in-rupees % change over last h days)\n     + w_real * (US 10-yr real yield change over last h days, percentage points)\n     + w_usd * (US broad dollar index % change over last h days)\n     + w_fx * (USD/INR % change over last h days)\n  weights re-fitted every run by ridge least squares on realised history (heavy shrinkage toward 'no change');\n  a variable keeps weight only if it cuts walk-forward error by at least 1%, and the model as a whole must beat 'no change'.\n  The forecast is applied to the IBJA 999 closing rate; live predictions are scored on the IBJA closing rate.",
  "band_pct": {
   "7": 1.0,
@@ -564,12 +568,12 @@
  "lessons": [
   "7-day back-test (2018-11-02 to 2026-11-13, 416 calls, gold in rupees): direction right 35.8% vs 35.8% for 'assume no change'; average error 1.901% vs 1.901%. Un-gated model (all four variables): 35.8% right, error 1.908%.",
   "7-day: no variable has proven predictive value, so the model forecast is 'no change' and it is not used for the call. Gold behaves close to a random walk.",
-  "30-day back-test (2018-11-26 to 2026-10-26, 410 calls, gold in rupees): direction right 33.2% vs 33.2% for 'assume no change'; average error 3.958% vs 3.958%. Un-gated model (all four variables): 33.4% right, error 3.993%.",
+  "30-day back-test (2018-11-26 to 2026-10-26, 410 calls, gold in rupees): direction right 33.2% vs 33.2% for 'assume no change'; average error 3.961% vs 3.961%. Un-gated model (all four variables): 33.4% right, error 3.996%.",
   "30-day: no variable has proven predictive value, so the model forecast is 'no change' and it is not used for the call. Gold behaves close to a random walk.",
   "Rule 'buy on a 3.0% dip, wait after a 3.0% jump' (30-day outcome, since 2017-11-10): right 52.4% of 399 signals (wait: 40.9% of 254, opposite action 59.1%, buy now: 72.4% of 145, opposite action 27.6%).",
   "Rule 'premium/discount above 2.0%': 19 signals in the IBJA history held, right 36.8% (buy now: 36.8% of 19).",
   "Rule sides used for today's call: 'buy after a dip'. Not used: 'wait after a jump', 'buy when India is at a discount', 'wait when India is at a premium'.",
-  "Chart indicators (14 tested, 2016-11-25 to 2026-11-25): none cut 21-day error by 1% vs the drift and 'no change', so none feeds the call. Closest on direction: 50-day average above/below 200-day (golden/death cross state), right 56.4% vs 59.8% for 'always the usual direction'. Support levels held 72.8% of touches vs 75.6% for random levels; resistance 63.8% vs 59.9%.",
+  "Chart indicators (14 tested, 2016-11-25 to 2026-11-25): none cut 21-day error by 1% vs the drift and 'no change', so none feeds the call. Closest on direction: 50-day average above/below 200-day (golden/death cross state), right 56.4% vs 59.8% for 'always the usual direction'. Support levels held 72.8% of touches vs 75.5% for random levels; resistance 63.8% vs 60.0%.",
   "Live track record: learning, too few results yet (0 scored)."
  ],
  "technical": {
@@ -593,17 +597,17 @@
      "days": 2385,
      "hit": 48.9,
      "drift_hit": 55.3,
-     "mae": 1.893,
-     "mae_nochange": 1.913,
-     "mae_drift": 1.893,
+     "mae": 1.894,
+     "mae_nochange": 1.914,
+     "mae_drift": 1.894,
      "err_cut_vs_drift": -0.01,
      "err_cut_vs_nochange": 1.04,
      "passes": false,
      "decision": {
-      "cost_rule": 0.271,
+      "cost_rule": 0.27,
       "cost_now": 0.238,
-      "cost_wait": 0.315,
-      "save_vs_now": -0.033,
+      "cost_wait": 0.314,
+      "save_vs_now": -0.032,
       "save_vs_wait": 0.044
      },
      "periods": {
@@ -640,17 +644,17 @@
      "days": 2380,
      "hit": 50.5,
      "drift_hit": 56.1,
-     "mae": 2.58,
-     "mae_nochange": 2.604,
-     "mae_drift": 2.577,
+     "mae": 2.581,
+     "mae_nochange": 2.605,
+     "mae_drift": 2.578,
      "err_cut_vs_drift": -0.11,
      "err_cut_vs_nochange": 0.92,
      "passes": false,
      "decision": {
-      "cost_rule": 0.531,
+      "cost_rule": 0.53,
       "cost_now": 0.476,
-      "cost_wait": 0.642,
-      "save_vs_now": -0.055,
+      "cost_wait": 0.641,
+      "save_vs_now": -0.054,
       "save_vs_wait": 0.111
      },
      "periods": {
@@ -687,17 +691,17 @@
      "days": 2369,
      "hit": 52.3,
      "drift_hit": 59.8,
-     "mae": 3.713,
-     "mae_nochange": 3.795,
-     "mae_drift": 3.713,
+     "mae": 3.714,
+     "mae_nochange": 3.796,
+     "mae_drift": 3.714,
      "err_cut_vs_drift": 0.01,
      "err_cut_vs_nochange": 2.17,
      "passes": false,
      "decision": {
-      "cost_rule": 1.063,
+      "cost_rule": 1.062,
       "cost_now": 1.0,
       "cost_wait": 1.4,
-      "save_vs_now": -0.063,
+      "save_vs_now": -0.062,
       "save_vs_wait": 0.338
      },
      "periods": {
@@ -738,17 +742,17 @@
      "days": 2385,
      "hit": 50.9,
      "drift_hit": 55.3,
-     "mae": 1.893,
-     "mae_nochange": 1.913,
-     "mae_drift": 1.893,
+     "mae": 1.894,
+     "mae_nochange": 1.914,
+     "mae_drift": 1.894,
      "err_cut_vs_drift": -0.01,
      "err_cut_vs_nochange": 1.04,
      "passes": false,
      "decision": {
-      "cost_rule": 0.234,
+      "cost_rule": 0.233,
       "cost_now": 0.238,
-      "cost_wait": 0.315,
-      "save_vs_now": 0.004,
+      "cost_wait": 0.314,
+      "save_vs_now": 0.005,
       "save_vs_wait": 0.081
      },
      "periods": {
@@ -785,16 +789,16 @@
      "days": 2380,
      "hit": 53.6,
      "drift_hit": 56.1,
-     "mae": 2.578,
-     "mae_nochange": 2.604,
-     "mae_drift": 2.577,
+     "mae": 2.579,
+     "mae_nochange": 2.605,
+     "mae_drift": 2.578,
      "err_cut_vs_drift": -0.02,
      "err_cut_vs_nochange": 1.01,
      "passes": false,
      "decision": {
       "cost_rule": 0.455,
       "cost_now": 0.476,
-      "cost_wait": 0.642,
+      "cost_wait": 0.641,
       "save_vs_now": 0.021,
       "save_vs_wait": 0.186
      },
@@ -833,16 +837,16 @@
      "hit": 54.6,
      "drift_hit": 59.8,
      "mae": 3.715,
-     "mae_nochange": 3.795,
-     "mae_drift": 3.713,
+     "mae_nochange": 3.796,
+     "mae_drift": 3.714,
      "err_cut_vs_drift": -0.04,
      "err_cut_vs_nochange": 2.12,
      "passes": false,
      "decision": {
-      "cost_rule": 1.0,
+      "cost_rule": 0.999,
       "cost_now": 1.0,
       "cost_wait": 1.4,
-      "save_vs_now": 0.0,
+      "save_vs_now": 0.001,
       "save_vs_wait": 0.4
      },
      "periods": {
@@ -883,17 +887,17 @@
      "days": 2385,
      "hit": 52.3,
      "drift_hit": 55.3,
-     "mae": 1.901,
-     "mae_nochange": 1.913,
-     "mae_drift": 1.893,
+     "mae": 1.902,
+     "mae_nochange": 1.914,
+     "mae_drift": 1.894,
      "err_cut_vs_drift": -0.43,
      "err_cut_vs_nochange": 0.62,
      "passes": false,
      "decision": {
       "cost_rule": 0.244,
       "cost_now": 0.238,
-      "cost_wait": 0.315,
-      "save_vs_now": -0.006,
+      "cost_wait": 0.314,
+      "save_vs_now": -0.005,
       "save_vs_wait": 0.071
      },
      "periods": {
@@ -930,17 +934,17 @@
      "days": 2380,
      "hit": 53.8,
      "drift_hit": 56.1,
-     "mae": 2.596,
-     "mae_nochange": 2.604,
-     "mae_drift": 2.577,
+     "mae": 2.597,
+     "mae_nochange": 2.605,
+     "mae_drift": 2.578,
      "err_cut_vs_drift": -0.74,
      "err_cut_vs_nochange": 0.3,
      "passes": false,
      "decision": {
-      "cost_rule": 0.496,
+      "cost_rule": 0.495,
       "cost_now": 0.476,
-      "cost_wait": 0.642,
-      "save_vs_now": -0.02,
+      "cost_wait": 0.641,
+      "save_vs_now": -0.019,
       "save_vs_wait": 0.146
      },
      "periods": {
@@ -977,9 +981,9 @@
      "days": 2369,
      "hit": 53.8,
      "drift_hit": 59.8,
-     "mae": 3.729,
-     "mae_nochange": 3.795,
-     "mae_drift": 3.713,
+     "mae": 3.73,
+     "mae_nochange": 3.796,
+     "mae_drift": 3.714,
      "err_cut_vs_drift": -0.42,
      "err_cut_vs_nochange": 1.75,
      "passes": false,
@@ -1028,17 +1032,17 @@
      "days": 2385,
      "hit": 53.1,
      "drift_hit": 55.3,
-     "mae": 1.903,
-     "mae_nochange": 1.913,
-     "mae_drift": 1.893,
+     "mae": 1.904,
+     "mae_nochange": 1.914,
+     "mae_drift": 1.894,
      "err_cut_vs_drift": -0.54,
      "err_cut_vs_nochange": 0.52,
      "passes": false,
      "decision": {
-      "cost_rule": 0.221,
+      "cost_rule": 0.22,
       "cost_now": 0.238,
-      "cost_wait": 0.315,
-      "save_vs_now": 0.017,
+      "cost_wait": 0.314,
+      "save_vs_now": 0.018,
       "save_vs_wait": 0.094
      },
      "periods": {
@@ -1076,15 +1080,15 @@
      "hit": 53.8,
      "drift_hit": 56.1,
      "mae": 2.603,
-     "mae_nochange": 2.604,
-     "mae_drift": 2.577,
+     "mae_nochange": 2.605,
+     "mae_drift": 2.578,
      "err_cut_vs_drift": -0.98,
      "err_cut_vs_nochange": 0.06,
      "passes": false,
      "decision": {
-      "cost_rule": 0.453,
+      "cost_rule": 0.452,
       "cost_now": 0.476,
-      "cost_wait": 0.642,
+      "cost_wait": 0.641,
       "save_vs_now": 0.024,
       "save_vs_wait": 0.189
      },
@@ -1122,17 +1126,17 @@
      "days": 2369,
      "hit": 56.4,
      "drift_hit": 59.8,
-     "mae": 3.751,
-     "mae_nochange": 3.795,
-     "mae_drift": 3.713,
+     "mae": 3.752,
+     "mae_nochange": 3.796,
+     "mae_drift": 3.714,
      "err_cut_vs_drift": -1.03,
      "err_cut_vs_nochange": 1.15,
      "passes": false,
      "decision": {
-      "cost_rule": 0.958,
+      "cost_rule": 0.957,
       "cost_now": 1.0,
       "cost_wait": 1.4,
-      "save_vs_now": 0.042,
+      "save_vs_now": 0.043,
       "save_vs_wait": 0.443
      },
      "periods": {
@@ -1173,17 +1177,17 @@
      "days": 2385,
      "hit": 52.4,
      "drift_hit": 55.3,
-     "mae": 1.893,
-     "mae_nochange": 1.913,
-     "mae_drift": 1.893,
+     "mae": 1.894,
+     "mae_nochange": 1.914,
+     "mae_drift": 1.894,
      "err_cut_vs_drift": -0.03,
      "err_cut_vs_nochange": 1.03,
      "passes": false,
      "decision": {
       "cost_rule": 0.195,
       "cost_now": 0.238,
-      "cost_wait": 0.315,
-      "save_vs_now": 0.043,
+      "cost_wait": 0.314,
+      "save_vs_now": 0.044,
       "save_vs_wait": 0.12
      },
      "periods": {
@@ -1221,16 +1225,16 @@
      "hit": 55.4,
      "drift_hit": 56.1,
      "mae": 2.568,
-     "mae_nochange": 2.604,
-     "mae_drift": 2.577,
+     "mae_nochange": 2.605,
+     "mae_drift": 2.578,
      "err_cut_vs_drift": 0.38,
      "err_cut_vs_nochange": 1.4,
      "passes": false,
      "decision": {
-      "cost_rule": 0.4,
+      "cost_rule": 0.399,
       "cost_now": 0.476,
-      "cost_wait": 0.642,
-      "save_vs_now": 0.076,
+      "cost_wait": 0.641,
+      "save_vs_now": 0.077,
       "save_vs_wait": 0.242
      },
      "periods": {
@@ -1267,17 +1271,17 @@
      "days": 2369,
      "hit": 54.3,
      "drift_hit": 59.8,
-     "mae": 3.716,
-     "mae_nochange": 3.795,
-     "mae_drift": 3.713,
+     "mae": 3.717,
+     "mae_nochange": 3.796,
+     "mae_drift": 3.714,
      "err_cut_vs_drift": -0.07,
      "err_cut_vs_nochange": 2.09,
      "passes": false,
      "decision": {
-      "cost_rule": 0.954,
+      "cost_rule": 0.953,
       "cost_now": 1.0,
       "cost_wait": 1.4,
-      "save_vs_now": 0.046,
+      "save_vs_now": 0.047,
       "save_vs_wait": 0.447
      },
      "periods": {
@@ -1318,18 +1322,18 @@
      "days": 2385,
      "hit": 43.5,
      "drift_hit": 60.9,
-     "mae": 1.894,
-     "mae_nochange": 1.913,
-     "mae_drift": 1.893,
+     "mae": 1.895,
+     "mae_nochange": 1.914,
+     "mae_drift": 1.894,
      "err_cut_vs_drift": -0.08,
      "err_cut_vs_nochange": 0.97,
      "passes": false,
      "decision": {
       "cost_rule": 0.28,
       "cost_now": 0.238,
-      "cost_wait": 0.315,
+      "cost_wait": 0.314,
       "save_vs_now": -0.042,
-      "save_vs_wait": 0.035
+      "save_vs_wait": 0.034
      },
      "periods": {
       "2017-18": {
@@ -1355,17 +1359,17 @@
      "days": 2380,
      "hit": 41.3,
      "drift_hit": 58.7,
-     "mae": 2.588,
-     "mae_nochange": 2.604,
-     "mae_drift": 2.577,
+     "mae": 2.589,
+     "mae_nochange": 2.605,
+     "mae_drift": 2.578,
      "err_cut_vs_drift": -0.41,
      "err_cut_vs_nochange": 0.62,
      "passes": false,
      "decision": {
       "cost_rule": 0.575,
       "cost_now": 0.476,
-      "cost_wait": 0.642,
-      "save_vs_now": -0.099,
+      "cost_wait": 0.641,
+      "save_vs_now": -0.098,
       "save_vs_wait": 0.067
      },
      "periods": {
@@ -1392,17 +1396,17 @@
      "days": 2369,
      "hit": 48.6,
      "drift_hit": 61.6,
-     "mae": 3.733,
-     "mae_nochange": 3.795,
-     "mae_drift": 3.713,
+     "mae": 3.734,
+     "mae_nochange": 3.796,
+     "mae_drift": 3.714,
      "err_cut_vs_drift": -0.53,
      "err_cut_vs_nochange": 1.64,
      "passes": false,
      "decision": {
-      "cost_rule": 1.216,
+      "cost_rule": 1.215,
       "cost_now": 1.0,
       "cost_wait": 1.4,
-      "save_vs_now": -0.216,
+      "save_vs_now": -0.215,
       "save_vs_wait": 0.185
      },
      "periods": {
@@ -1434,15 +1438,15 @@
      "hit": 48.0,
      "drift_hit": 58.3,
      "mae": 1.9,
-     "mae_nochange": 1.913,
-     "mae_drift": 1.893,
+     "mae_nochange": 1.914,
+     "mae_drift": 1.894,
      "err_cut_vs_drift": -0.35,
      "err_cut_vs_nochange": 0.71,
      "passes": false,
      "decision": {
       "cost_rule": 0.273,
       "cost_now": 0.238,
-      "cost_wait": 0.315,
+      "cost_wait": 0.314,
       "save_vs_now": -0.035,
       "save_vs_wait": 0.042
      },
@@ -1475,17 +1479,17 @@
      "days": 2380,
      "hit": 50.9,
      "drift_hit": 55.9,
-     "mae": 2.583,
-     "mae_nochange": 2.604,
-     "mae_drift": 2.577,
+     "mae": 2.584,
+     "mae_nochange": 2.605,
+     "mae_drift": 2.578,
      "err_cut_vs_drift": -0.23,
      "err_cut_vs_nochange": 0.8,
      "passes": false,
      "decision": {
-      "cost_rule": 0.544,
+      "cost_rule": 0.543,
       "cost_now": 0.476,
-      "cost_wait": 0.642,
-      "save_vs_now": -0.068,
+      "cost_wait": 0.641,
+      "save_vs_now": -0.067,
       "save_vs_wait": 0.098
      },
      "periods": {
@@ -1517,9 +1521,9 @@
      "days": 2369,
      "hit": 43.4,
      "drift_hit": 63.8,
-     "mae": 3.731,
-     "mae_nochange": 3.795,
-     "mae_drift": 3.713,
+     "mae": 3.732,
+     "mae_nochange": 3.796,
+     "mae_drift": 3.714,
      "err_cut_vs_drift": -0.48,
      "err_cut_vs_nochange": 1.69,
      "passes": false,
@@ -1564,16 +1568,16 @@
      "hit": 49.1,
      "drift_hit": 55.3,
      "mae": 1.894,
-     "mae_nochange": 1.913,
-     "mae_drift": 1.893,
+     "mae_nochange": 1.914,
+     "mae_drift": 1.894,
      "err_cut_vs_drift": -0.03,
      "err_cut_vs_nochange": 1.03,
      "passes": false,
      "decision": {
-      "cost_rule": 0.26,
+      "cost_rule": 0.259,
       "cost_now": 0.238,
-      "cost_wait": 0.315,
-      "save_vs_now": -0.022,
+      "cost_wait": 0.314,
+      "save_vs_now": -0.021,
       "save_vs_wait": 0.055
      },
      "periods": {
@@ -1611,16 +1615,16 @@
      "hit": 51.8,
      "drift_hit": 56.1,
      "mae": 2.581,
-     "mae_nochange": 2.604,
-     "mae_drift": 2.577,
+     "mae_nochange": 2.605,
+     "mae_drift": 2.578,
      "err_cut_vs_drift": -0.12,
      "err_cut_vs_nochange": 0.9,
      "passes": false,
      "decision": {
-      "cost_rule": 0.489,
+      "cost_rule": 0.488,
       "cost_now": 0.476,
-      "cost_wait": 0.642,
-      "save_vs_now": -0.013,
+      "cost_wait": 0.641,
+      "save_vs_now": -0.012,
       "save_vs_wait": 0.153
      },
      "periods": {
@@ -1657,9 +1661,9 @@
      "days": 2369,
      "hit": 53.0,
      "drift_hit": 59.8,
-     "mae": 3.714,
-     "mae_nochange": 3.795,
-     "mae_drift": 3.713,
+     "mae": 3.715,
+     "mae_nochange": 3.796,
+     "mae_drift": 3.714,
      "err_cut_vs_drift": -0.03,
      "err_cut_vs_nochange": 2.13,
      "passes": false,
@@ -1708,17 +1712,17 @@
      "days": 2385,
      "hit": 49.2,
      "drift_hit": 55.3,
-     "mae": 1.895,
-     "mae_nochange": 1.913,
-     "mae_drift": 1.893,
+     "mae": 1.896,
+     "mae_nochange": 1.914,
+     "mae_drift": 1.894,
      "err_cut_vs_drift": -0.12,
      "err_cut_vs_nochange": 0.94,
      "passes": false,
      "decision": {
-      "cost_rule": 0.268,
+      "cost_rule": 0.267,
       "cost_now": 0.238,
-      "cost_wait": 0.315,
-      "save_vs_now": -0.03,
+      "cost_wait": 0.314,
+      "save_vs_now": -0.029,
       "save_vs_wait": 0.047
      },
      "periods": {
@@ -1755,18 +1759,18 @@
      "days": 2380,
      "hit": 51.0,
      "drift_hit": 56.1,
-     "mae": 2.581,
-     "mae_nochange": 2.604,
-     "mae_drift": 2.577,
+     "mae": 2.582,
+     "mae_nochange": 2.605,
+     "mae_drift": 2.578,
      "err_cut_vs_drift": -0.15,
      "err_cut_vs_nochange": 0.88,
      "passes": false,
      "decision": {
       "cost_rule": 0.554,
       "cost_now": 0.476,
-      "cost_wait": 0.642,
+      "cost_wait": 0.641,
       "save_vs_now": -0.077,
-      "save_vs_wait": 0.088
+      "save_vs_wait": 0.087
      },
      "periods": {
       "2017-18": {
@@ -1802,17 +1806,17 @@
      "days": 2369,
      "hit": 51.8,
      "drift_hit": 59.8,
-     "mae": 3.717,
-     "mae_nochange": 3.795,
-     "mae_drift": 3.713,
+     "mae": 3.718,
+     "mae_nochange": 3.796,
+     "mae_drift": 3.714,
      "err_cut_vs_drift": -0.12,
      "err_cut_vs_nochange": 2.04,
      "passes": false,
      "decision": {
-      "cost_rule": 1.128,
+      "cost_rule": 1.127,
       "cost_now": 1.0,
       "cost_wait": 1.4,
-      "save_vs_now": -0.128,
+      "save_vs_now": -0.127,
       "save_vs_wait": 0.273
      },
      "periods": {
@@ -1854,16 +1858,16 @@
      "hit": 50.8,
      "drift_hit": 55.3,
      "mae": 1.895,
-     "mae_nochange": 1.913,
-     "mae_drift": 1.893,
+     "mae_nochange": 1.914,
+     "mae_drift": 1.894,
      "err_cut_vs_drift": -0.08,
      "err_cut_vs_nochange": 0.97,
      "passes": false,
      "decision": {
-      "cost_rule": 0.234,
+      "cost_rule": 0.233,
       "cost_now": 0.238,
-      "cost_wait": 0.315,
-      "save_vs_now": 0.004,
+      "cost_wait": 0.314,
+      "save_vs_now": 0.005,
       "save_vs_wait": 0.081
      },
      "periods": {
@@ -1900,17 +1904,17 @@
      "days": 2380,
      "hit": 53.5,
      "drift_hit": 56.1,
-     "mae": 2.581,
-     "mae_nochange": 2.604,
-     "mae_drift": 2.577,
+     "mae": 2.582,
+     "mae_nochange": 2.605,
+     "mae_drift": 2.578,
      "err_cut_vs_drift": -0.13,
      "err_cut_vs_nochange": 0.9,
      "passes": false,
      "decision": {
-      "cost_rule": 0.452,
+      "cost_rule": 0.451,
       "cost_now": 0.476,
-      "cost_wait": 0.642,
-      "save_vs_now": 0.024,
+      "cost_wait": 0.641,
+      "save_vs_now": 0.025,
       "save_vs_wait": 0.19
      },
      "periods": {
@@ -1947,9 +1951,9 @@
      "days": 2369,
      "hit": 55.3,
      "drift_hit": 59.8,
-     "mae": 3.711,
-     "mae_nochange": 3.795,
-     "mae_drift": 3.713,
+     "mae": 3.712,
+     "mae_nochange": 3.796,
+     "mae_drift": 3.714,
      "err_cut_vs_drift": 0.05,
      "err_cut_vs_nochange": 2.21,
      "passes": false,
@@ -1998,17 +2002,17 @@
      "days": 2385,
      "hit": 46.8,
      "drift_hit": 57.1,
-     "mae": 1.894,
-     "mae_nochange": 1.913,
-     "mae_drift": 1.893,
+     "mae": 1.895,
+     "mae_nochange": 1.914,
+     "mae_drift": 1.894,
      "err_cut_vs_drift": -0.04,
      "err_cut_vs_nochange": 1.01,
      "passes": false,
      "decision": {
-      "cost_rule": 0.284,
+      "cost_rule": 0.283,
       "cost_now": 0.238,
-      "cost_wait": 0.315,
-      "save_vs_now": -0.046,
+      "cost_wait": 0.314,
+      "save_vs_now": -0.045,
       "save_vs_wait": 0.031
      },
      "periods": {
@@ -2045,18 +2049,18 @@
      "days": 2380,
      "hit": 49.0,
      "drift_hit": 57.6,
-     "mae": 2.579,
-     "mae_nochange": 2.604,
-     "mae_drift": 2.577,
+     "mae": 2.58,
+     "mae_nochange": 2.605,
+     "mae_drift": 2.578,
      "err_cut_vs_drift": -0.06,
      "err_cut_vs_nochange": 0.97,
      "passes": false,
      "decision": {
       "cost_rule": 0.569,
       "cost_now": 0.476,
-      "cost_wait": 0.642,
+      "cost_wait": 0.641,
       "save_vs_now": -0.093,
-      "save_vs_wait": 0.073
+      "save_vs_wait": 0.072
      },
      "periods": {
       "2017-18": {
@@ -2093,8 +2097,8 @@
      "hit": 52.8,
      "drift_hit": 63.7,
      "mae": 3.713,
-     "mae_nochange": 3.795,
-     "mae_drift": 3.713,
+     "mae_nochange": 3.796,
+     "mae_drift": 3.714,
      "err_cut_vs_drift": 0.01,
      "err_cut_vs_nochange": 2.17,
      "passes": false,
@@ -2143,17 +2147,17 @@
      "days": 2385,
      "hit": 51.5,
      "drift_hit": 58.1,
-     "mae": 1.897,
-     "mae_nochange": 1.913,
-     "mae_drift": 1.893,
+     "mae": 1.898,
+     "mae_nochange": 1.914,
+     "mae_drift": 1.894,
      "err_cut_vs_drift": -0.21,
      "err_cut_vs_nochange": 0.85,
      "passes": false,
      "decision": {
       "cost_rule": 0.272,
       "cost_now": 0.238,
-      "cost_wait": 0.315,
-      "save_vs_now": -0.034,
+      "cost_wait": 0.314,
+      "save_vs_now": -0.033,
       "save_vs_wait": 0.043
      },
      "periods": {
@@ -2185,16 +2189,16 @@
      "days": 2380,
      "hit": 52.1,
      "drift_hit": 59.8,
-     "mae": 2.581,
-     "mae_nochange": 2.604,
-     "mae_drift": 2.577,
+     "mae": 2.582,
+     "mae_nochange": 2.605,
+     "mae_drift": 2.578,
      "err_cut_vs_drift": -0.13,
      "err_cut_vs_nochange": 0.89,
      "passes": false,
      "decision": {
-      "cost_rule": 0.562,
+      "cost_rule": 0.561,
       "cost_now": 0.476,
-      "cost_wait": 0.642,
+      "cost_wait": 0.641,
       "save_vs_now": -0.085,
       "save_vs_wait": 0.08
      },
@@ -2228,8 +2232,8 @@
      "hit": 57.0,
      "drift_hit": 65.3,
      "mae": 3.715,
-     "mae_nochange": 3.795,
-     "mae_drift": 3.713,
+     "mae_nochange": 3.796,
+     "mae_drift": 3.714,
      "err_cut_vs_drift": -0.04,
      "err_cut_vs_nochange": 2.12,
      "passes": false,
@@ -2273,16 +2277,16 @@
      "days": 2385,
      "hit": 51.0,
      "drift_hit": 56.7,
-     "mae": 1.895,
-     "mae_nochange": 1.913,
-     "mae_drift": 1.893,
+     "mae": 1.896,
+     "mae_nochange": 1.914,
+     "mae_drift": 1.894,
      "err_cut_vs_drift": -0.12,
      "err_cut_vs_nochange": 0.94,
      "passes": false,
      "decision": {
       "cost_rule": 0.277,
       "cost_now": 0.238,
-      "cost_wait": 0.315,
+      "cost_wait": 0.314,
       "save_vs_now": -0.039,
       "save_vs_wait": 0.037
      },
@@ -2320,18 +2324,18 @@
      "days": 2380,
      "hit": 48.3,
      "drift_hit": 57.1,
-     "mae": 2.581,
-     "mae_nochange": 2.604,
-     "mae_drift": 2.577,
+     "mae": 2.582,
+     "mae_nochange": 2.605,
+     "mae_drift": 2.578,
      "err_cut_vs_drift": -0.14,
      "err_cut_vs_nochange": 0.88,
      "passes": false,
      "decision": {
       "cost_rule": 0.563,
       "cost_now": 0.476,
-      "cost_wait": 0.642,
-      "save_vs_now": -0.087,
-      "save_vs_wait": 0.079
+      "cost_wait": 0.641,
+      "save_vs_now": -0.086,
+      "save_vs_wait": 0.078
      },
      "periods": {
       "2017-18": {
@@ -2368,8 +2372,8 @@
      "hit": 49.2,
      "drift_hit": 63.5,
      "mae": 3.715,
-     "mae_nochange": 3.795,
-     "mae_drift": 3.713,
+     "mae_nochange": 3.796,
+     "mae_drift": 3.714,
      "err_cut_vs_drift": -0.04,
      "err_cut_vs_nochange": 2.12,
      "passes": false,
@@ -2418,16 +2422,16 @@
      "days": 2385,
      "hit": 49.0,
      "drift_hit": 56.7,
-     "mae": 1.895,
-     "mae_nochange": 1.913,
-     "mae_drift": 1.893,
+     "mae": 1.896,
+     "mae_nochange": 1.914,
+     "mae_drift": 1.894,
      "err_cut_vs_drift": -0.12,
      "err_cut_vs_nochange": 0.94,
      "passes": false,
      "decision": {
-      "cost_rule": 0.276,
+      "cost_rule": 0.275,
       "cost_now": 0.238,
-      "cost_wait": 0.315,
+      "cost_wait": 0.314,
       "save_vs_now": -0.037,
       "save_vs_wait": 0.039
      },
@@ -2465,18 +2469,18 @@
      "days": 2380,
      "hit": 51.7,
      "drift_hit": 57.1,
-     "mae": 2.581,
-     "mae_nochange": 2.604,
-     "mae_drift": 2.577,
+     "mae": 2.582,
+     "mae_nochange": 2.605,
+     "mae_drift": 2.578,
      "err_cut_vs_drift": -0.14,
      "err_cut_vs_nochange": 0.88,
      "passes": false,
      "decision": {
       "cost_rule": 0.555,
       "cost_now": 0.476,
-      "cost_wait": 0.642,
-      "save_vs_now": -0.079,
-      "save_vs_wait": 0.087
+      "cost_wait": 0.641,
+      "save_vs_now": -0.078,
+      "save_vs_wait": 0.086
      },
      "periods": {
       "2017-18": {
@@ -2513,8 +2517,8 @@
      "hit": 50.8,
      "drift_hit": 63.5,
      "mae": 3.715,
-     "mae_nochange": 3.795,
-     "mae_drift": 3.713,
+     "mae_nochange": 3.796,
+     "mae_drift": 3.714,
      "err_cut_vs_drift": -0.04,
      "err_cut_vs_nochange": 2.12,
      "passes": false,
@@ -2562,7 +2566,7 @@
     "touches": 339,
     "decided": 298,
     "hold_pct": 72.8,
-    "random_hold_pct": 75.6,
+    "random_hold_pct": 75.5,
     "random_n": 4545,
     "periods": {
      "2017-18": {
@@ -2611,7 +2615,7 @@
        55
       ],
       "random": [
-       74.4,
+       74.2,
        932
       ]
      }
@@ -2622,7 +2626,7 @@
     "touches": 389,
     "decided": 354,
     "hold_pct": 63.8,
-    "random_hold_pct": 59.9,
+    "random_hold_pct": 60.0,
     "random_n": 4596,
     "periods": {
      "2017-18": {
@@ -2641,8 +2645,8 @@
        85
       ],
       "random": [
-       58.0,
-       972
+       58.1,
+       971
       ]
      },
      "2021-22": {
@@ -2672,7 +2676,7 @@
       ],
       "random": [
        51.4,
-       919
+       920
       ]
      }
     },
@@ -2686,8 +2690,8 @@
     "calm": 73.2,
     "turbulent": 80.4,
     "width_pct": 5.75,
-    "today_lo_pct": -4.48,
-    "today_hi_pct": 6.1,
+    "today_lo_pct": -4.53,
+    "today_hi_pct": 6.17,
     "calibrated": true
    },
    "atr": {
@@ -2696,24 +2700,24 @@
     "calm": 71.4,
     "turbulent": 82.3,
     "width_pct": 5.72,
-    "today_lo_pct": -4.39,
-    "today_hi_pct": 5.92,
+    "today_lo_pct": -4.69,
+    "today_hi_pct": 6.35,
     "calibrated": true
    }
   },
   "now": {
    "date": "2026-11-25",
-   "close": 106987.0,
-   "atr": 3040.0,
-   "atr_pct": 2.84,
-   "rsi": 29.5,
-   "macd": -4985.0,
-   "macd_signal": -3958.0,
-   "ma20": 116966.0,
-   "ma50": 124247.0,
-   "ma200": 134122.0,
-   "bb_lo": 104000.0,
-   "bb_hi": 129932.0,
+   "close": 105291.0,
+   "atr": 3203.0,
+   "atr_pct": 3.04,
+   "rsi": 27.8,
+   "macd": -5121.0,
+   "macd_signal": -3985.0,
+   "ma20": 116881.0,
+   "ma50": 124213.0,
+   "ma200": 134113.0,
+   "bb_lo": 103621.0,
+   "bb_hi": 130141.0,
    "don20_hi": 126237.0,
    "don20_lo": 104377.0,
    "don55_hi": 137464.0,
@@ -2743,12 +2747,12 @@
   "method": "Technical view: standard chart indicators on gold in rupees, each back-tested walk-forward before it may count.\n\nSeries: international gold in rupees before duty (Rs/10 g) = COMEX close x USD/INR (ECB) / 31.1035 x 10; daily highs and\nlows the same way from COMEX highs/lows (for ATR, Donchian and swing levels). About 10 years of daily data (2016 on).\nNo look-ahead: every reading on day t uses data up to t only; a swing high/low becomes a level only K days after it.\nEach indicator gives +1 (points up), -1 (points down) or 0 (no signal).\nScores, for horizons of 5, 10 and 21 trading days:\n  hit rate      = share of signal days where the price moved the way the signal pointed; compared with\n                  'always assume the usual direction' (the drift) on the same days\n  error         = forecast a + b*signal, re-fitted every 21 trading days on outcomes already known; compared with\n                  'no change' (0) and with the drift alone (a)\n  decision value= a buyer who must hold gold by day N: signal up -> buy now (pays carrying cost), down -> buy on day N,\n                  none -> half and half; average cost compared with buying immediately and with buying on day N\nGate (same rule as the model): an indicator may feed the main call only if, at 21 trading days (about 30 calendar days,\nthe call's window), it cuts walk-forward error by at least 1% versus the drift alone AND versus 'no change'.\nNumbers only from data/live.json; plain arithmetic, no AI.",
   "passed": [],
   "ibja": {
-   "date": "2026-11-23",
-   "rate": 124945,
-   "intl_date": "2026-11-23",
-   "intl": 109508,
-   "ratio": 1.141,
-   "sessions": 86,
+   "date": "2026-11-25",
+   "rate": 121038,
+   "intl_date": "2026-11-25",
+   "intl": 105291,
+   "ratio": 1.1496,
+   "sessions": 87,
    "testable": false,
    "note": "IBJA-equivalent level = world-price level x (IBJA rate / world price in rupees on the IBJA date); the ratio carries duty and the local premium"
   }
