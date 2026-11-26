@@ -21,7 +21,7 @@
   }
  ],
  "version": "v1.2",
- "updated_ist": "2026-11-26 04:58 IST",
+ "updated_ist": "2026-11-26 17:25 IST",
  "horizons": {
   "7": {
    "gate": {
@@ -175,12 +175,12 @@
     "data": "IBJA 999 closing rate (only the ~4 months of IBJA history the app holds; too few for a firm verdict)"
    },
    "combined": {
-    "n": 68,
-    "hit_rate": 11.8,
+    "n": 69,
+    "hit_rate": 11.6,
     "by_call": {
      "buy part": {
-      "n": 58,
-      "hit_rate": 13.8,
+      "n": 59,
+      "hit_rate": 13.6,
       "opposite_hit_rate": 0.0
      },
      "buy now": {
@@ -189,9 +189,9 @@
       "opposite_hit_rate": 100.0
      }
     },
-    "base_up": 25.0,
-    "base_down": 75.0,
-    "base_flat": 13.2,
+    "base_up": 24.6,
+    "base_down": 75.4,
+    "base_flat": 13.0,
     "start": "2026-07-20",
     "data": "IBJA 999 closing rate (only the ~4 months of IBJA history the app holds; too few for a firm verdict)"
    },
@@ -555,10 +555,14 @@
   [
    "2026-11-25",
    -1.43
+  ],
+  [
+   "2026-11-26",
+   -0.26
   ]
  ],
  "data_last_date": "2026-11-26",
- "ibja_last_date": "2026-11-25",
+ "ibja_last_date": "2026-11-26",
  "formula": "Gold desk prediction ledger, scoring and learning. Numbers only from data/live.json and data/rates.json.\nNo AI is used anywhere here; every number is plain arithmetic or least squares, written to JSON.\n\nPrices\n  International gold in rupees (Rs/10 g, before duty) = COMEX gold (US$/oz) x USD/INR / 31.1035 x 10\n  Landed cost (Rs/10 g, before GST)                   = international x (1 + customs duty%)          [market-value basis]\n  Indian premium (+) / discount (-) %                  = IBJA 999 closing / landed cost - 1\n     (COMEX reference = average of previous and same-day COMEX close, approximating the price at IBJA's afternoon rate)\nForecast of the % change of gold in rupees over h days (h = 7, 30):\n  d% = w_mom * (gold-in-rupees % change over last h days)\n     + w_real * (US 10-yr real yield change over last h days, percentage points)\n     + w_usd * (US broad dollar index % change over last h days)\n     + w_fx * (USD/INR % change over last h days)\n  weights re-fitted every run by ridge least squares on realised history (heavy shrinkage toward 'no change');\n  a variable keeps weight only if it cuts walk-forward error by at least 1%, and the model as a whole must beat 'no change'.\n  The forecast is applied to the IBJA 999 closing rate; live predictions are scored on the IBJA closing rate.",
  "band_pct": {
   "7": 1.0,
@@ -574,7 +578,7 @@
   "Rule 'premium/discount above 2.0%': 19 signals in the IBJA history held, right 36.8% (buy now: 36.8% of 19).",
   "Rule sides used for today's call: 'buy after a dip'. Not used: 'wait after a jump', 'buy when India is at a discount', 'wait when India is at a premium'.",
   "Chart indicators (14 tested, 2016-11-28 to 2026-11-26): none cut 21-day error by 1% vs the drift and 'no change', so none feeds the call. Closest on direction: 50-day average above/below 200-day (golden/death cross state), right 56.4% vs 59.8% for 'always the usual direction'. Support levels held 72.8% of touches vs 74.5% for random levels; resistance 63.8% vs 59.8%.",
-  "Live track record: learning, too few results yet (0 scored)."
+  "Live track record: learning, too few results yet (1 scored)."
  ],
  "technical": {
   "series": "International gold in rupees before duty (Rs/10 g) = COMEX gold x USD/INR (ECB) / 31.1035 x 10; highs/lows the same way",
@@ -599,7 +603,7 @@
      "drift_hit": 55.3,
      "mae": 1.894,
      "mae_nochange": 1.913,
-     "mae_drift": 1.893,
+     "mae_drift": 1.894,
      "err_cut_vs_drift": -0.02,
      "err_cut_vs_nochange": 1.01,
      "passes": false,
@@ -744,7 +748,7 @@
      "drift_hit": 55.3,
      "mae": 1.894,
      "mae_nochange": 1.913,
-     "mae_drift": 1.893,
+     "mae_drift": 1.894,
      "err_cut_vs_drift": -0.02,
      "err_cut_vs_nochange": 1.02,
      "passes": false,
@@ -843,10 +847,10 @@
      "err_cut_vs_nochange": 2.11,
      "passes": false,
      "decision": {
-      "cost_rule": 0.994,
+      "cost_rule": 0.993,
       "cost_now": 1.0,
       "cost_wait": 1.395,
-      "save_vs_now": 0.006,
+      "save_vs_now": 0.007,
       "save_vs_wait": 0.401
      },
      "periods": {
@@ -889,7 +893,7 @@
      "drift_hit": 55.3,
      "mae": 1.902,
      "mae_nochange": 1.913,
-     "mae_drift": 1.893,
+     "mae_drift": 1.894,
      "err_cut_vs_drift": -0.44,
      "err_cut_vs_nochange": 0.59,
      "passes": false,
@@ -1034,7 +1038,7 @@
      "drift_hit": 55.3,
      "mae": 1.904,
      "mae_nochange": 1.913,
-     "mae_drift": 1.893,
+     "mae_drift": 1.894,
      "err_cut_vs_drift": -0.56,
      "err_cut_vs_nochange": 0.48,
      "passes": false,
@@ -1179,7 +1183,7 @@
      "drift_hit": 55.3,
      "mae": 1.894,
      "mae_nochange": 1.913,
-     "mae_drift": 1.893,
+     "mae_drift": 1.894,
      "err_cut_vs_drift": -0.02,
      "err_cut_vs_nochange": 1.01,
      "passes": false,
@@ -1324,7 +1328,7 @@
      "drift_hit": 60.9,
      "mae": 1.895,
      "mae_nochange": 1.913,
-     "mae_drift": 1.893,
+     "mae_drift": 1.894,
      "err_cut_vs_drift": -0.08,
      "err_cut_vs_nochange": 0.95,
      "passes": false,
@@ -1332,7 +1336,7 @@
       "cost_rule": 0.28,
       "cost_now": 0.238,
       "cost_wait": 0.313,
-      "save_vs_now": -0.042,
+      "save_vs_now": -0.041,
       "save_vs_wait": 0.034
      },
      "periods": {
@@ -1437,9 +1441,9 @@
      "days": 2385,
      "hit": 47.8,
      "drift_hit": 58.0,
-     "mae": 1.9,
+     "mae": 1.901,
      "mae_nochange": 1.913,
-     "mae_drift": 1.893,
+     "mae_drift": 1.894,
      "err_cut_vs_drift": -0.37,
      "err_cut_vs_nochange": 0.67,
      "passes": false,
@@ -1569,7 +1573,7 @@
      "drift_hit": 55.3,
      "mae": 1.894,
      "mae_nochange": 1.913,
-     "mae_drift": 1.893,
+     "mae_drift": 1.894,
      "err_cut_vs_drift": -0.03,
      "err_cut_vs_nochange": 1.0,
      "passes": false,
@@ -1714,7 +1718,7 @@
      "drift_hit": 55.3,
      "mae": 1.896,
      "mae_nochange": 1.913,
-     "mae_drift": 1.893,
+     "mae_drift": 1.894,
      "err_cut_vs_drift": -0.12,
      "err_cut_vs_nochange": 0.92,
      "passes": false,
@@ -1759,14 +1763,14 @@
      "days": 2380,
      "hit": 51.0,
      "drift_hit": 56.1,
-     "mae": 2.585,
+     "mae": 2.586,
      "mae_nochange": 2.608,
      "mae_drift": 2.582,
      "err_cut_vs_drift": -0.15,
      "err_cut_vs_nochange": 0.86,
      "passes": false,
      "decision": {
-      "cost_rule": 0.55,
+      "cost_rule": 0.549,
       "cost_now": 0.476,
       "cost_wait": 0.638,
       "save_vs_now": -0.073,
@@ -1859,7 +1863,7 @@
      "drift_hit": 55.3,
      "mae": 1.895,
      "mae_nochange": 1.913,
-     "mae_drift": 1.893,
+     "mae_drift": 1.894,
      "err_cut_vs_drift": -0.08,
      "err_cut_vs_nochange": 0.95,
      "passes": false,
@@ -2004,7 +2008,7 @@
      "drift_hit": 57.0,
      "mae": 1.894,
      "mae_nochange": 1.913,
-     "mae_drift": 1.893,
+     "mae_drift": 1.894,
      "err_cut_vs_drift": -0.04,
      "err_cut_vs_nochange": 0.99,
      "passes": false,
@@ -2147,9 +2151,9 @@
      "days": 2385,
      "hit": 51.8,
      "drift_hit": 57.8,
-     "mae": 1.897,
+     "mae": 1.898,
      "mae_nochange": 1.913,
-     "mae_drift": 1.893,
+     "mae_drift": 1.894,
      "err_cut_vs_drift": -0.21,
      "err_cut_vs_nochange": 0.83,
      "passes": false,
@@ -2196,7 +2200,7 @@
      "err_cut_vs_nochange": 0.86,
      "passes": false,
      "decision": {
-      "cost_rule": 0.558,
+      "cost_rule": 0.557,
       "cost_now": 0.476,
       "cost_wait": 0.638,
       "save_vs_now": -0.081,
@@ -2279,7 +2283,7 @@
      "drift_hit": 56.4,
      "mae": 1.896,
      "mae_nochange": 1.913,
-     "mae_drift": 1.893,
+     "mae_drift": 1.894,
      "err_cut_vs_drift": -0.11,
      "err_cut_vs_nochange": 0.92,
      "passes": false,
@@ -2424,7 +2428,7 @@
      "drift_hit": 56.4,
      "mae": 1.896,
      "mae_nochange": 1.913,
-     "mae_drift": 1.893,
+     "mae_drift": 1.894,
      "err_cut_vs_drift": -0.11,
      "err_cut_vs_nochange": 0.92,
      "passes": false,
@@ -2627,7 +2631,7 @@
     "decided": 354,
     "hold_pct": 63.8,
     "random_hold_pct": 59.8,
-    "random_n": 4624,
+    "random_n": 4623,
     "periods": {
      "2017-18": {
       "real": [
@@ -2665,8 +2669,8 @@
        70
       ],
       "random": [
-       57.4,
-       1024
+       57.5,
+       1023
       ]
      },
      "2025-26": {
@@ -2691,7 +2695,7 @@
     "turbulent": 80.4,
     "width_pct": 5.75,
     "today_lo_pct": -4.41,
-    "today_hi_pct": 6.0,
+    "today_hi_pct": 6.01,
     "calibrated": true
    },
    "atr": {
@@ -2700,24 +2704,24 @@
     "calm": 72.4,
     "turbulent": 82.4,
     "width_pct": 5.77,
-    "today_lo_pct": -4.6,
-    "today_hi_pct": 6.19,
+    "today_lo_pct": -4.71,
+    "today_hi_pct": 6.34,
     "calibrated": true
    }
   },
   "now": {
    "date": "2026-11-26",
-   "close": 106787.0,
-   "atr": 3167.0,
-   "atr_pct": 2.97,
-   "rsi": 29.6,
-   "macd": -5043.0,
-   "macd_signal": -4171.0,
-   "ma20": 116143.0,
-   "ma50": 123686.0,
-   "ma200": 133929.0,
-   "bb_lo": 102847.0,
-   "bb_hi": 129439.0,
+   "close": 106565.0,
+   "atr": 3235.0,
+   "atr_pct": 3.04,
+   "rsi": 29.4,
+   "macd": -5060.0,
+   "macd_signal": -4175.0,
+   "ma20": 116132.0,
+   "ma50": 123682.0,
+   "ma200": 133927.0,
+   "bb_lo": 102802.0,
+   "bb_hi": 129461.0,
    "don20_hi": 126237.0,
    "don20_lo": 102425.0,
    "don55_hi": 137464.0,
@@ -2747,12 +2751,12 @@
   "method": "Technical view: standard chart indicators on gold in rupees, each back-tested walk-forward before it may count.\n\nSeries: international gold in rupees before duty (Rs/10 g) = COMEX close x USD/INR (ECB) / 31.1035 x 10; daily highs and\nlows the same way from COMEX highs/lows (for ATR, Donchian and swing levels). About 10 years of daily data (2016 on).\nNo look-ahead: every reading on day t uses data up to t only; a swing high/low becomes a level only K days after it.\nEach indicator gives +1 (points up), -1 (points down) or 0 (no signal).\nScores, for horizons of 5, 10 and 21 trading days:\n  hit rate      = share of signal days where the price moved the way the signal pointed; compared with\n                  'always assume the usual direction' (the drift) on the same days\n  error         = forecast a + b*signal, re-fitted every 21 trading days on outcomes already known; compared with\n                  'no change' (0) and with the drift alone (a)\n  decision value= a buyer who must hold gold by day N: signal up -> buy now (pays carrying cost), down -> buy on day N,\n                  none -> half and half; average cost compared with buying immediately and with buying on day N\nGate (same rule as the model): an indicator may feed the main call only if, at 21 trading days (about 30 calendar days,\nthe call's window), it cuts walk-forward error by at least 1% versus the drift alone AND versus 'no change'.\nNumbers only from data/live.json; plain arithmetic, no AI.",
   "passed": [],
   "ibja": {
-   "date": "2026-11-25",
-   "rate": 121038,
-   "intl_date": "2026-11-25",
-   "intl": 107277,
-   "ratio": 1.1283,
-   "sessions": 87,
+   "date": "2026-11-26",
+   "rate": 122641,
+   "intl_date": "2026-11-26",
+   "intl": 106565,
+   "ratio": 1.1509,
+   "sessions": 88,
    "testable": false,
    "note": "IBJA-equivalent level = world-price level x (IBJA rate / world price in rupees on the IBJA date); the ratio carries duty and the local premium"
   }
