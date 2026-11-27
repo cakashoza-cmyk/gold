@@ -125,7 +125,13 @@
 },
 "made_on": "2026-11-20",
 "logged_ist": "2026-11-20 23:04 IST",
-"model_version": "v1.1"
+"model_version": "v1.1",
+"scored": true,
+"realised_on": "2026-11-27",
+"realised_ibja_rs": 126299.0,
+"realised_pct": 1.94,
+"error_rs": -2406.0,
+"hit_direction": false
 },
 {
 "id": "2026-11-20-30d",
@@ -470,6 +476,100 @@
 },
 "made_on": "2026-11-26",
 "logged_ist": "2026-11-26 17:25 IST",
+"model_version": "v1.2"
+},
+{
+"id": "2026-11-27-7d",
+"kind": "model",
+"horizon_days": 7,
+"target_date": "2026-12-04",
+"pred_pct": 0.0,
+"direction": "flat",
+"pred_ibja_rs": 126299.0,
+"error_band_pct": 3.05,
+"model_has_edge": false,
+"inputs": {
+"ibja_rs": 126299.0,
+"features": [
+4.259,
+-0.09,
+0.059,
+-0.248
+],
+"weights": {
+"momentum": 0.0,
+"real_yield": 0.0,
+"dollar": 0.0,
+"rupee": 0.0
+}
+},
+"made_on": "2026-11-27",
+"logged_ist": "2026-11-27 17:17 IST",
+"model_version": "v1.2"
+},
+{
+"id": "2026-11-27-30d",
+"kind": "model",
+"horizon_days": 30,
+"target_date": "2026-12-27",
+"pred_pct": 0.0,
+"direction": "flat",
+"pred_ibja_rs": 126299.0,
+"error_band_pct": 6.04,
+"model_has_edge": false,
+"inputs": {
+"ibja_rs": 126299.0,
+"features": [
+-12.014,
+0.15,
+1.591,
+-2.909
+],
+"weights": {
+"momentum": 0.0,
+"real_yield": 0.0,
+"dollar": 0.0,
+"rupee": 0.0
+}
+},
+"made_on": "2026-11-27",
+"logged_ist": "2026-11-27 17:17 IST",
+"model_version": "v1.2"
+},
+{
+"id": "2026-11-27-call",
+"news_flag": null,
+"kind": "call",
+"horizon_days": 30,
+"target_date": "2026-12-27",
+"buy_call": "buy part",
+"raw_call": "buy part",
+"downgraded": null,
+"basis": "rules",
+"rule_premium": null,
+"rule_dip": "wait",
+"rules_active": {
+"dip_buy": true,
+"dip_wait": false,
+"prem_buy": false,
+"prem_wait": false
+},
+"ta_votes": [],
+"ta_passed": [],
+"inputs": {
+"ibja_rs": 126299.0,
+"premium_pct": 1.35,
+"gold_rupee_move_pct": 4.26,
+"rules": {
+"prem_pct": 2.0,
+"dip_pct": 3.0,
+"dip_days": 7,
+"call_days": 30
+},
+"repo_pct": 5.5
+},
+"made_on": "2026-11-27",
+"logged_ist": "2026-11-27 17:17 IST",
 "model_version": "v1.2"
 }
 ]
